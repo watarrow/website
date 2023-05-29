@@ -1,9 +1,9 @@
 .menu-button {
-  display: inline-block;
+  display: none;
   transform: scale(0.33);
   z-index: 3;
-  margin: -2rem -3rem;
-  padding: 2rem 3rem;
+  margin: -4rem -5rem;
+  padding: 4rem 5rem;
 }
 
 .menu {
@@ -16,13 +16,13 @@
   // border: 2px solid red;
   padding: 0 1.5rem;
 
-  transition: right 0.35s cubic-bezier(0.67, 0.2, 0.33, 0.8);
+  transition: right 0.5s cubic-bezier(0.33, 0.1, 0.1, 1);
 
   &[data-menu-open="true"] {
     right: 0;
   }
   &[data-menu-open="false"] {
-    right: -100%;
+    right: -290px;
   }
 
   .menu-links-list {
@@ -32,8 +32,12 @@
       text-align: right;
       border-bottom: 1pt solid #252525;
       .menu-link {
+        font-weight: 300;
         line-height: 40px;
         color: var(--font-color);
+        display: inline-block;
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -45,7 +49,12 @@
   }
   &[data-menu-open="false"] {
     opacity: 0;
-    display: none;
+  }
+  &[data-background="true"] {
+    visibility: visible;
+  }
+  &[data-background="false"] {
+    visibility: hidden;
   }
 
   position: fixed;
@@ -56,7 +65,7 @@
   background-color: var(--bg-color);
   z-index: 1;
 
-  transition: opacity 0.35s cubic-bezier(0.67, 0.2, 0.33, 0.8);
+  transition: opacity 0.5s cubic-bezier(0.33, 0.1, 0.1, 1);
 }
 
 #hamburger {
@@ -64,7 +73,7 @@
   width: 60px;
   height: 45px;
   position: relative;
-  margin: auto -21px;
+  margin: auto -22px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -77,10 +86,10 @@
   & > span {
     display: block;
     position: absolute;
-    height: 9px;
+    height: 6px;
+    border-radius: 6px;
     width: 100%;
     background: var(--font-color);
-    border-radius: 9px;
     opacity: 1;
     left: 0;
     -webkit-transform: rotate(0deg);
@@ -139,4 +148,10 @@
   transform: rotate(-45deg);
   top: 39px;
   left: 8px;
+}
+
+@media (max-width: 800px) {
+  .menu-button {
+    display: inline-block;
+  }
 }

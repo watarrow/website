@@ -1,6 +1,46 @@
-footer {
+.footer {
   margin-top: auto;
   text-align: center;
-  padding: 10px;
-  color: var(--font-color);
+  padding: 2rem;
+
+  .copyright {
+    color: var(--font-color);
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .mobile {
+    margin: 1rem auto;
+  }
+
+  .links-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+
+    .links-list-item {
+      .link {
+        color: var(--font-color);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .footer {
+    .links-list {
+      align-items: normal;
+      flex-wrap: wrap;
+      gap: 1rem;
+      .link-list-item {
+        .link {
+        }
+      }
+    }
+  }
 }

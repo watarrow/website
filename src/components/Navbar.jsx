@@ -27,26 +27,22 @@ const links = [
 ];
 
 const Navbar = () => {
-  const isMobile = useMediaQuery("(max-width: 800px)");
-
   return (
     <nav className="navbar">
       <Link className="logo-link" href="/">
         <WatArrow height="100%" />
       </Link>
       {/* collapsed menu for mobile */}
-      {!isMobile && (
-        <ul className="links-list">
-          {links.map((link, i) => (
-            <li className="links-list-item" key={i}>
-              <Link className="link" href={link.href}>
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-      {isMobile && <MenuButton links={links} />}
+      <ul className="links-list">
+        {links.map((link, i) => (
+          <li className="links-list-item" key={i}>
+            <Link className="link" href={link.href}>
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <MenuButton links={links} />
     </nav>
   );
 };

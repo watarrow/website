@@ -28,7 +28,8 @@ html[data-theme="dark"] {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Avenir 85 Heavy", "D-DIN", sans-serif;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.01rem;
   transition: all 0.5s ease;
   transition-property: background-color, color, border-color, fill;
 }

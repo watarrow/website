@@ -20,8 +20,8 @@
       list-style-type: none;
 
       .link {
+        font-size: 14px;
         font-weight: 500;
-        font-size: 15px;
         text-transform: uppercase;
       }
     }
@@ -40,6 +40,10 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    .links-list {
+      display: none;
     }
   }
 }

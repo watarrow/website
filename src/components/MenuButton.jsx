@@ -1,18 +1,21 @@
 import { useState } from "react";
 import Link from "next/link";
-import FadeIn from "react-fade-in/lib/FadeIn";
+import { Fade } from "react-awesome-reveal";
 
 const MenuButton = ({ links }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
 
   return (
     <>
-      <div className="menu-button">
-        <div
-          id="hamburger"
-          className={menuOpen ? "open" : ""}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+      <div
+        className="menu-button"
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+          setShowBackground(true);
+        }}
+      >
+        <div id="hamburger" className={menuOpen ? "open" : ""}>
           <span></span>
           <span></span>
           <span></span>
@@ -20,7 +23,13 @@ const MenuButton = ({ links }) => {
       </div>
       <div className="menu" data-menu-open={menuOpen}>
         <ul className="menu-links-list">
-          <FadeIn visible={menuOpen} transitionDuration={500} delay={100}>
+          <Fade
+            cascade
+            damping={0.175}
+            delay={75}
+            duration={500}
+            onVisibilityChange={() => setShowBackground(menuOpen)}
+          >
             {links.map((link, i) => (
               <li className="menu-links-list-item" key={i}>
                 <Link className="menu-link" href={link.href}>
@@ -28,12 +37,13 @@ const MenuButton = ({ links }) => {
                 </Link>
               </li>
             ))}
-          </FadeIn>
+          </Fade>
         </ul>
       </div>
       <div
         className="background"
         data-menu-open={menuOpen}
+        data-background={showBackground}
         onClick={() => setMenuOpen(false)}
       />
     </>
