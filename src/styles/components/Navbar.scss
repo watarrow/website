@@ -1,0 +1,28 @@
+.navbar {
+  margin: 0 1rem;
+  height: 7.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-link {
+  height: 50px;
+}
+.links-list {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-right: 1rem;
+}
+.links-list-item {
+  list-style-type: none;
+}
+.link {
+}
+
+@media (max-width: 800px) {
+  .logo-link {
+    height: 40px;
+  }
+}
