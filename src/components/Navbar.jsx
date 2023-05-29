@@ -46,7 +46,7 @@ const Navbar = () => {
           ))}
         </ul>
       )}
-      {isMobile && <MenuButton links={links} className="menu-button" />}
+      {isMobile && <MenuButton links={links} />}
     </nav>
   );
 };

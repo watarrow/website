@@ -1,4 +1,117 @@
-.menu-button-icon {
-  font-size: 30px;
-  margin-right: 0.25rem;
+.menu-button {
+  transform: scale(0.33);
+  z-index: 1;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 290px;
+  height: 100vh;
+  background-color: var(--bg-color);
+  // border: 2px solid red;
+  padding: 0 1.5rem;
+
+  transition: right 0.35s cubic-bezier(0.67, 0.2, 0.33, 0.8);
+
+  &[data-menu-open="true"] {
+    right: 0;
+  }
+  &[data-menu-open="false"] {
+    right: -100%;
+  }
+}
+
+.menu-links-list {
+  margin-top: 4rem;
+  list-style-type: none;
+  .menu-links-list-item {
+    text-align: right;
+    border-bottom: 1px solid #252525;
+    .menu-link {
+      line-height: 40px;
+    }
+  }
+}
+
+#hamburger {
+  z-index: 1;
+  width: 60px;
+  height: 45px;
+  position: relative;
+  margin: auto -21px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  & > span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: var(--font-color);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+}
+
+#hamburger span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger span:nth-child(2) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger span:nth-child(3) {
+  top: 36px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+}
+
+#hamburger.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#hamburger.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
 }

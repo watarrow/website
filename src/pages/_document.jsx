@@ -28,6 +28,8 @@ export default function Document() {
           name="description"
           content="WatArrow is an aero design team from the University of Waterloo that competes in SAE Aero Design competitions. The team designs, fabricates, and tests radio controlled aircraft that can take off, land, and optimally meet mission requiresments set out by the competition."
         />
+        {/* ===== FONT ===== */}
+        <link href="https://fonts.cdnfonts.com/css/d-din" rel="stylesheet" />
       </Head>
       <body>
         <Main />

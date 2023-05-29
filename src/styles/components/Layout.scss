@@ -2,11 +2,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
 
-.container {
-  margin: 2.5rem auto;
-  width: 100%;
+  .container {
+    width: 100%;
+  }
 }
 
 @media (max-width: 800px) {

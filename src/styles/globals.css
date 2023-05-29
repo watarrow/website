@@ -1,3 +1,10 @@
+font-face {
+  font-family: "Avenir 85 Heavy";
+  font-weight: 1000;
+  src: local("Avenir 85 Heavy"),
+    url(/fonts/avenir-85-heavy.ttf) format("opentype");
+}
+
 /* ===== COLOR PALETTE ===== */
 :root {
   --accent-color: #ffcf2e;
@@ -21,7 +28,7 @@ html[data-theme="dark"] {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Avenir 85 Heavy", "D-DIN", sans-serif;
   transition: all 0.5s ease;
   transition-property: background-color, color, border-color;
 }
