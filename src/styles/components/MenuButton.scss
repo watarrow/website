@@ -45,6 +45,7 @@
   }
   &[data-menu-open="false"] {
     opacity: 0;
+    display: none;
   }
 
   position: fixed;
