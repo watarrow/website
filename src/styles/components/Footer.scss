@@ -34,6 +34,10 @@
 
 @media (max-width: 800px) {
   .footer {
+    .copyright {
+      margin-top: 0;
+    }
+
     .links-list {
       align-items: normal;
       flex-wrap: wrap;
