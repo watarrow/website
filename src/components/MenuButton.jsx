@@ -31,6 +31,11 @@ const MenuButton = ({ links }) => {
           </FadeIn>
         </ul>
       </div>
+      <div
+        className="background"
+        data-menu-open={menuOpen}
+        onClick={() => setMenuOpen(false)}
+      />
     </>
   );
 };

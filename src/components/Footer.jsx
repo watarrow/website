@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <footer>{"Copyright © Joshua Perry"}</footer>;
+  return <footer>WatArrow © {new Date().getFullYear()}</footer>;
 };
 
 export default Footer;

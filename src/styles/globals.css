@@ -1,6 +1,6 @@
 font-face {
   font-family: "Avenir 85 Heavy";
-  font-weight: 1000;
+  font-weight: 800;
   src: local("Avenir 85 Heavy"),
     url(/fonts/avenir-85-heavy.ttf) format("opentype");
 }
@@ -30,7 +30,7 @@ html[data-theme="dark"] {
   margin: 0;
   font-family: "Avenir 85 Heavy", "D-DIN", sans-serif;
   transition: all 0.5s ease;
-  transition-property: background-color, color, border-color;
+  transition-property: background-color, color, border-color, fill;
 }
 
 html,
