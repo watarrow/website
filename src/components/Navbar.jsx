@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import WatArrow from "@/assets/watarrow-word-logo.svg";
-import { useMediaQuery } from "@mui/material";
 import MenuButton from "./MenuButton";
 
 const links = [
@@ -27,6 +27,31 @@ const links = [
 ];
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    window.onscroll = () => scrollFunction();
+  });
+
+  let lastScrollTop = 0;
+  const scrollFunction = () => {
+    let scrollTop =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    if (scrollTop > 100) {
+      setMenuOpen(false);
+      setShowBackground(false);
+    }
+    if (scrollTop > lastScrollTop) {
+      // downscroll
+      document.querySelector(".navbar").style.opacity = 0;
+    } else if (scrollTop < lastScrollTop) {
+      // upscroll
+      document.querySelector(".navbar").style.opacity = 1;
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  };
+
   return (
     <nav className="navbar">
       <Link className="logo-link" href="/">
@@ -42,7 +67,13 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <MenuButton links={links} />
+      <MenuButton
+        links={links}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        showBackground={showBackground}
+        setShowBackground={setShowBackground}
+      />
     </nav>
   );
 };

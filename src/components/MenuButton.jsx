@@ -1,11 +1,13 @@
-import { useState } from "react";
 import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
 
-const MenuButton = ({ links }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showBackground, setShowBackground] = useState(false);
-
+const MenuButton = ({
+  links,
+  menuOpen,
+  setMenuOpen,
+  showBackground,
+  setShowBackground,
+}) => {
   return (
     <>
       <div

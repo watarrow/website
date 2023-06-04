@@ -7,7 +7,6 @@
     color: var(--font-color);
     font-size: 12px;
     font-weight: 400;
-    margin-top: 2px;
   }
   .mobile {
     margin: 1rem auto;
@@ -24,9 +23,15 @@
       .link {
         color: var(--font-color);
         font-size: 12px;
+        line-height: 24px;
         font-weight: 700;
         text-transform: uppercase;
         margin: 1rem 0;
+
+        transition: color 1s cubic-bezier(0.25, 1, 0.25, 1);
+        &:hover {
+          color: var(--medium-gray);
+        }
       }
     }
   }

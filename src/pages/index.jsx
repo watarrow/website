@@ -9,7 +9,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="home">
-        <div style={{ height: 200, background: "gray" }}>Content</div>
+        <div style={{ height: 2000, background: "gray" }}></div>
       </main>
     </>
   );
