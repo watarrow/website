@@ -54,26 +54,28 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link className="logo-link" href="/">
-        <WatArrow height="100%" />
-      </Link>
-      {/* collapsed menu for mobile */}
-      <ul className="links-list">
-        {links.map((link, i) => (
-          <li className="links-list-item" key={i}>
-            <Link className="link" href={link.href}>
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <MenuButton
-        links={links}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        showBackground={showBackground}
-        setShowBackground={setShowBackground}
-      />
+      <div className="navbar-container">
+        <Link className="logo-link" href="/">
+          <WatArrow height="100%" />
+        </Link>
+        {/* collapsed menu for mobile */}
+        <ul className="links-list">
+          {links.map((link, i) => (
+            <li className="links-list-item" key={i}>
+              <Link className="link" href={link.href}>
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <MenuButton
+          links={links}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          showBackground={showBackground}
+          setShowBackground={setShowBackground}
+        />
+      </div>
     </nav>
   );
 };

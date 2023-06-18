@@ -1,0 +1,9 @@
+// ===== COMPONENTS =====
+@use "components/Footer.scss";
+@use "components/Layout.scss";
+@use "components/MenuButton";
+@use "components/Navbar";
+@use "components/ArticleGallery";
+
+// ===== PAGES =====
+@use "pages/About.scss";

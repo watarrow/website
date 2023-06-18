@@ -5,12 +5,7 @@ import Layout from "@/components/Layout";
 
 // ===== STYLES =====
 import "@/styles/globals.css";
-// pages
-// components
-import "@/styles/components/Navbar.scss";
-import "@/styles/components/Layout.scss";
-import "@/styles/components/Footer.scss";
-import "@/styles/components/MenuButton.scss";
+import "@/styles/globals.scss";
 
 export default function App({ Component, pageProps }) {
   // allowed routes
