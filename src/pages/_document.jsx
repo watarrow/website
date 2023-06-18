@@ -26,7 +26,7 @@ export default function Document() {
         {/* ===== DESCRIPTION ===== */}
         <meta
           name="description"
-          content="WatArrow is an aero design team from the University of Waterloo that competes in SAE Aero Design competitions. The team designs, fabricates, and tests radio controlled aircraft that can take off, land, and optimally meet mission requiresments set out by the competition."
+          content="WatArrow is an aero design team from the University of Waterloo that competes in SAE Aero Design competitions. The team designs, fabricates, and tests radio controlled aircraft that can take off, land, and optimally meet mission requirements set out by the competition."
         />
         {/* ===== FONT ===== */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
