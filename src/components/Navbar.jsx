@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import WatArrow from "@/assets/watarrow-word-logo.svg";
+
+// import WatArrow from "@/assets/watarrow-word-logo.svg";
+import Arrow from "@/assets/logo-transparent-svg.svg";
 import MenuButton from "./MenuButton";
 
 const links = [
@@ -56,7 +58,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link className="logo-link" href="/">
-          <WatArrow height="100%" />
+          <Arrow height="100%" />
         </Link>
         {/* collapsed menu for mobile */}
         <ul className="links-list">

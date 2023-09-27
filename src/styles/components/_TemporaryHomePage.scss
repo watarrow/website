@@ -1,0 +1,132 @@
+.temporary-home-page-root {
+  width: 100vw;
+  min-height: 100dvh;
+
+  .home-page-container {
+    max-width: 1400px;
+    height: 100dvh;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 99999;
+      padding-right: 200px;
+      margin-right: -200px;
+
+      .logo-container {
+        height: 140px;
+
+        .watarrow-word-logo_svg__cls-1 {
+          user-select: none;
+        }
+      }
+
+      .text-container {
+        margin-left: 40px;
+        font-size: 20px;
+        // user-select: none;
+      }
+
+      .button-container {
+        margin-top: 30px;
+        margin-left: 40px;
+        button {
+          outline: none;
+          border: 2px solid white;
+          background-color: black;
+          height: 45px;
+          appearance: none;
+          text-transform: uppercase;
+          font-weight: 500;
+          padding: 0 25px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: black;
+            transition-property: background-color, color;
+            transition-duration: 0.175s;
+            transition-timing-function: linear;
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 100%;
+      position: relative;
+
+      .stl-viewer-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-53%, -50%); // change as necessary
+        width: 200vw;
+        height: 100%;
+        cursor: grab;
+
+        .stl-viewer-mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .temporary-home-page-root {
+    .home-page-container {
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+      padding: 64px 25px;
+
+      .left {
+        padding-right: 0;
+        margin-right: 0;
+
+        .logo-container {
+          display: flex;
+          flex-direction: column;
+          height: 80px;
+        }
+
+        .text-container {
+          font-size: 18px;
+          line-height: 25px;
+          padding: 0 32.5px;
+          margin-left: 0;
+        }
+
+        .button-container {
+          margin-top: 20px;
+          margin-left: 32.5px;
+          button {
+          }
+        }
+      }
+
+      .right {
+        height: 33%;
+
+        .stl-viewer-container {
+          position: absolute;
+          transform: translate(-43%, -50%);
+          height: 100dvh;
+          width: 100vw;
+
+          .stl-viewer-desktop {
+            display: none;
+          }
+          .stl-viewer-mobile {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

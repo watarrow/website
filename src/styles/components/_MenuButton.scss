@@ -1,17 +1,17 @@
 .menu-button {
   display: none;
   transform: scale(0.33);
-  z-index: 3;
+  z-index: 1000001;
   margin: -4rem -5rem;
   padding: 4rem 5rem;
 }
 
 .menu {
-  z-index: 2;
+  z-index: 1000000;
   position: fixed;
   top: 0;
   width: 290px;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-color);
   // border: 2px solid red;
   padding: 0 1.5rem;
@@ -63,7 +63,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-color);
   z-index: 1;
 

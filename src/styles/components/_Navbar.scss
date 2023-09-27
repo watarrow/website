@@ -8,6 +8,7 @@
   transition: opacity 0.2s linear 0.1s;
 
   .navbar-container {
+    padding: 0 25px;
     max-width: 1400px;
     margin: 0 auto;
     height: 100px;
@@ -18,6 +19,7 @@
 
     .logo-link {
       height: 50px;
+      transform: scale(1.25);
     }
 
     // text color for header
@@ -74,17 +76,17 @@
   @media (max-width: 800px) {
     .navbar-container {
       flex-direction: row-reverse;
-      // margin: 0 1.5rem;
+      padding: 0;
       padding: 0 1.5rem;
       height: 4rem;
       background-color: rgba(0, 0, 0, 0);
 
       .logo-link {
-        z-index: 3;
+        z-index: 1000002;
         height: 37.5px;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) scale(1.25);
       }
 
       .links-list {
