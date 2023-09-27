@@ -58,6 +58,7 @@ const TemporaryHomePage = () => {
             />
           </div>
         </div>
+        <div className="spacer"></div>
       </div>
     </div>
   );

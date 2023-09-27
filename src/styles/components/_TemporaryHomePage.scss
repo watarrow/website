@@ -81,6 +81,10 @@
         }
       }
     }
+
+    .spacer {
+      display: none;
+    }
   }
 }
 
@@ -95,6 +99,10 @@
         .stl-viewer-container {
           transform: translate(-54%, -50%);
         }
+      }
+      .spacer {
+        display: block;
+        height: 7.5%;
       }
     }
   }
