@@ -1,13 +1,14 @@
 .temporary-home-page-root {
   width: 100vw;
-  min-height: 100dvh;
+  min-height: 100vh;
 
   .home-page-container {
     max-width: 1400px;
-    height: 100dvh;
+    height: 100vh;
     margin: 0 auto;
     padding: 0 25px;
     display: flex;
+    gap: 100px;
 
     .left {
       display: flex;
@@ -19,6 +20,7 @@
 
       .logo-container {
         height: 140px;
+        margin-left: -40px;
 
         .watarrow-word-logo_svg__cls-1 {
           user-select: none;
@@ -26,24 +28,27 @@
       }
 
       .text-container {
-        margin-left: 40px;
         font-size: 20px;
-        // user-select: none;
+        line-height: 30px;
+        user-select: none;
       }
 
       .button-container {
         margin-top: 30px;
-        margin-left: 40px;
-        button {
-          outline: none;
+
+        a {
+          user-select: none;
+          font-size: 13px;
+          line-height: 40px;
+          display: inline-block;
           border: 2px solid white;
           background-color: black;
-          height: 45px;
           appearance: none;
           text-transform: uppercase;
           font-weight: 500;
           padding: 0 25px;
           cursor: pointer;
+          color: white;
 
           &:hover {
             background-color: white;
@@ -68,9 +73,27 @@
         width: 200vw;
         height: 100%;
         cursor: grab;
+        opacity: 1;
+        animation: fadeIn 1s ease-in;
 
         .stl-viewer-mobile {
           display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .temporary-home-page-root {
+    .home-page-container {
+      gap: 0;
+      .left {
+        padding-left: 75px;
+      }
+      .right {
+        .stl-viewer-container {
+          transform: translate(-54%, -50%);
         }
       }
     }
@@ -88,25 +111,22 @@
       .left {
         padding-right: 0;
         margin-right: 0;
+        padding: 0 35px;
 
         .logo-container {
           display: flex;
           flex-direction: column;
           height: 80px;
+          margin-left: -20px;
         }
 
         .text-container {
           font-size: 18px;
           line-height: 25px;
-          padding: 0 32.5px;
-          margin-left: 0;
         }
 
         .button-container {
           margin-top: 20px;
-          margin-left: 32.5px;
-          button {
-          }
         }
       }
 
@@ -115,18 +135,32 @@
 
         .stl-viewer-container {
           position: absolute;
-          transform: translate(-43%, -50%);
-          height: 100dvh;
+          transform: translate(-37.5%, -50%);
+          height: 100vh;
           width: 100vw;
+          margin-left: -25px;
 
           .stl-viewer-desktop {
             display: none;
           }
           .stl-viewer-mobile {
             display: block;
+
+            & * {
+              pointer-events: none !important;
+            }
           }
         }
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

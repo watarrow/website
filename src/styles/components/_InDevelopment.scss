@@ -1,0 +1,27 @@
+.in-development-root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .logo-container {
+      height: 75px;
+
+      & * {
+        user-select: none;
+      }
+    }
+
+    h1 {
+      // font-size: 50px;
+      margin-bottom: 1rem;
+    }
+  }
+}

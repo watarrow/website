@@ -1,6 +1,5 @@
 import { StlViewer } from "react-stl-viewer";
-import Fade from "react-reveal/Fade";
-import FadeInOut from "./FadeInOut";
+import FadeIn from "react-fade-in";
 import Link from "next/link";
 
 import WatArrow from "@/assets/watarrow-word-logo.svg";
@@ -10,22 +9,20 @@ const TemporaryHomePage = () => {
     <div className="temporary-home-page-root">
       <div className="home-page-container">
         <div className="left">
-          <Fade bottom cascade distance="25px" ssrReveal>
+          <FadeIn delay={33}>
             <div className="logo-container">
               <WatArrow height="100%" />
             </div>
             <div className="text-container">
               <p>
-                Aircrafts designed, and built by student engineers at the
+                Aircrafts designed and built by student engineers at the
                 University of Waterloo.
               </p>
             </div>
             <div className="button-container">
-              <Link href="/about">
-                <button>Learn more</button>
-              </Link>
+              <Link href="/about">Learn more</Link>
             </div>
-          </Fade>
+          </FadeIn>
         </div>
         <div className="right">
           <div className="stl-viewer-container">

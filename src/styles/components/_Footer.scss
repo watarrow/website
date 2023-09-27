@@ -39,6 +39,8 @@
 
 @media (max-width: 800px) {
   .footer {
+    margin-bottom: calc(100vh - 100dvh);
+
     .copyright {
       margin-top: 0;
     }
