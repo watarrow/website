@@ -4,8 +4,9 @@
 @use "components/MenuButton";
 @use "components/Navbar";
 @use "components/ArticleGallery";
-@use "components/TemporaryHomePage";
+@use "components/HomePage";
 @use "components/InDevelopment";
+@use "components/ScrollArrow";
 
 // ===== PAGES =====
 @use "pages/About.scss";

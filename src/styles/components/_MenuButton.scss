@@ -11,9 +11,8 @@
   position: fixed;
   top: 0;
   width: 290px;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-color);
-  // border: 2px solid red;
   padding: 0 1.5rem;
 
   transition: right 0.5s cubic-bezier(0.33, 0.1, 0.1, 1);
@@ -63,9 +62,10 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-color);
   z-index: 1000000;
+  overflow-y: hidden;
 
   transition: opacity 0.5s cubic-bezier(0.33, 0.1, 0.1, 1);
 }

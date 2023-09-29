@@ -1,0 +1,37 @@
+.arrow-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 5%;
+
+  .arrow {
+    box-sizing: border-box;
+    height: 1.5vw;
+    width: 1.5vw;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 3px 3px 0px;
+    transform: rotate(45deg);
+    // animation: slideDown 2.5s infinite;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(0, 0);
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(45deg) translate(0, 0);
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
