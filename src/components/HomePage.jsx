@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { StlViewer } from "react-stl-viewer";
 import FadeIn from "react-fade-in";
 import Link from "next/link";
@@ -8,12 +8,10 @@ import FadeInOut from "./FadeInOut";
 // import ScrollArrow from "./ScrollArrow";
 
 import WatArrow from "@/assets/watarrow-word-logo.svg";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const isMobile = useBetterMediaQuery("(max-width: 800px)");
-  const { width, height } = useWindowDimensions();
 
   return (
     <div className="home-page-root">
@@ -24,10 +22,8 @@ const HomePage = () => {
               <WatArrow height="100%" />
             </div>
             <div className="text-container">
-              <p>
-                Aircrafts designed and built by student engineers at the
-                University of Waterloo.
-              </p>
+              Aircrafts designed and built by student engineers at the
+              University of Waterloo.
             </div>
             <div className="button-container">
               <Link href="/about">Learn more</Link>
@@ -55,7 +51,6 @@ const HomePage = () => {
                 onFinishLoading={() => setIsLoaded(true)}
               />
             </FadeIn>
-            {/* </FadeInOut> */}
           </div>
         </div>
         <div className="spacer"></div>
