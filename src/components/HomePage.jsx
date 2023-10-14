@@ -16,8 +16,8 @@ const HomePage = () => {
   return (
     <div className="home-page-root">
       <div className="home-page-container">
-        <div className="left">
-          <FadeIn delay={150}>
+        <FadeIn delay={150} transitionDuration={750} className="left">
+          <div>
             <div className="logo-container">
               <WatArrow height="100%" />
             </div>
@@ -28,8 +28,9 @@ const HomePage = () => {
             <div className="button-container">
               <Link href="/about">Learn more</Link>
             </div>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
+
         <div className="right">
           <div className={`cover ${isLoaded ? "loaded" : ""}`}></div>
           <div className="stl-viewer-container">
