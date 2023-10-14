@@ -22,8 +22,10 @@ const HomePage = () => {
               <WatArrow height="100%" />
             </div>
             <div className="text-container">
-              Aircrafts designed and built by student engineers at the
-              University of Waterloo.
+              <p>
+                Aircrafts designed and built by student engineers at the
+                University of Waterloo.
+              </p>
             </div>
             <div className="button-container">
               <Link href="/about">Learn more</Link>
