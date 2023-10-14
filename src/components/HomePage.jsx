@@ -17,16 +17,14 @@ const HomePage = () => {
     <div className="home-page-root">
       <div className="home-page-container">
         <div className="left">
-          <FadeIn delay={150} transitionDuration={750}>
+          <FadeIn delay={150}>
             <div className="logo-container">
               <WatArrow height="100%" />
             </div>
-            <div className="text-container">
-              <p>
-                Aircrafts designed and built by student engineers at the
-                University of Waterloo.
-              </p>
-            </div>
+            <p>
+              Aircrafts designed and built by student engineers at the
+              University of Waterloo.
+            </p>
             <div className="button-container">
               <Link href="/about">Learn more</Link>
             </div>
