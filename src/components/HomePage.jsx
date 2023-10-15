@@ -16,20 +16,20 @@ const HomePage = () => {
   return (
     <div className="home-page-root">
       <div className="home-page-container">
-        <FadeIn delay={150} transitionDuration={750} className="left">
-          <div>
-            <div className="logo-container">
-              <WatArrow height="100%" />
-            </div>
-            <p>
-              Aircrafts designed and built by student engineers at the
-              University of Waterloo.
-            </p>
-            <div className="button-container">
-              <Link href="/about">Learn more</Link>
-            </div>
+        {/* <FadeIn delay={150} transitionDuration={750} className="left"> */}
+        <div className="left">
+          <div className="logo-container">
+            <WatArrow height="100%" />
           </div>
-        </FadeIn>
+          <p>
+            Aircrafts designed and built by student engineers at the University
+            of Waterloo.
+          </p>
+          <div className="button-container">
+            <Link href="/about">Learn more</Link>
+          </div>
+        </div>
+        {/* </FadeIn> */}
 
         <div className="right">
           <div className={`cover ${isLoaded ? "loaded" : ""}`}></div>
