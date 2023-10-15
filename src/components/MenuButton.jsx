@@ -33,7 +33,13 @@ const MenuButton = ({
             onVisibilityChange={() => setShowBackground(menuOpen)}
           >
             {links.map((link, i) => (
-              <li className="menu-links-list-item" key={i}>
+              <li
+                className="menu-links-list-item"
+                key={i}
+                onClick={() => {
+                  setMenuOpen(false);
+                }}
+              >
                 <Link className="menu-link" href={link.href}>
                   {link.name}
                 </Link>

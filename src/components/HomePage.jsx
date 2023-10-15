@@ -4,7 +4,6 @@ import FadeIn from "react-fade-in";
 import Link from "next/link";
 import useBetterMediaQuery from "@/hooks/useBetterMediaQuery";
 
-import FadeInOut from "./FadeInOut";
 // import ScrollArrow from "./ScrollArrow";
 
 import WatArrow from "@/assets/watarrow-word-logo.svg";
@@ -33,7 +32,7 @@ const HomePage = () => {
           <div className={`cover ${isLoaded ? "loaded" : ""}`}></div>
           <div className="stl-viewer-container">
             <FadeIn
-              delay={150}
+              delay={750}
               style={{ height: "100%", width: "100%" }}
               transitionDuration={750}
             >

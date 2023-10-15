@@ -56,7 +56,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link className="logo-link" href="/">
+        <Link className="logo-link" href="/" onClick={() => setMenuOpen(false)}>
           <Arrow height="100%" />
         </Link>
         {/* collapsed menu for mobile */}

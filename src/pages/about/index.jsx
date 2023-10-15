@@ -1,6 +1,8 @@
 import FadeIn from "react-fade-in/lib/FadeIn";
 import Image from "next/image";
 
+import uwaterloo from "@/assets/uwaterloo.png";
+
 const About = () => {
   return (
     <div className="about-root">
@@ -8,7 +10,11 @@ const About = () => {
         <div className="card">
           <div className="card-content">
             <div className="left">
-              <FadeIn className="text-container" delay={75}>
+              <FadeIn
+                className="text-container"
+                delay={75}
+                transitionDuration={750}
+              >
                 <h1>ABOUT</h1>
                 <p>
                   WatArrow is a new design team at the University of Waterloo
@@ -28,7 +34,19 @@ const About = () => {
                 </p>
               </FadeIn>
             </div>
-            <div className="right">{/* <Image src={} /> */}</div>
+            <div className="right">
+              <FadeIn
+                delay={375}
+                transitionDuration={750}
+                className="logo-container"
+              >
+                <Image
+                  src={uwaterloo}
+                  alt={"University of Waterloo Logo"}
+                  className="uwaterloo-logo"
+                />
+              </FadeIn>
+            </div>
           </div>
         </div>
       </div>
