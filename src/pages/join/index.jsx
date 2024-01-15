@@ -9,11 +9,11 @@ const Join = () => {
         <div className="header">
           <h1>JOIN US</h1>
           <p>
-            We're thrilled that you're considering joining WatArrow! As we grow
+            We′re thrilled that you′re considering joining WatArrow! As we grow
             our team, we can use all the help we can get. We have a lot going on
             from sponsorships, software, and most importantly engineering!
             Regardless of your background, there will be a place for you here
-            and we can't wait for you to be a part of the team!
+            and we can′t wait for you to be a part of the team!
           </p>
         </div>
         <div className="open-roles-container">
@@ -35,7 +35,7 @@ const Join = () => {
               </ul>
             ) : (
               <p className="no-roles">
-                It looks like we don't have any open roles at the moment.
+                It looks like we don′t have any open roles at the moment.
               </p>
             )}
           </div>
@@ -43,7 +43,7 @@ const Join = () => {
         <div className="general-interest-form">
           <h2>GENERAL INTEREST FORM</h2>
           <p>
-            If you don't find any roles that fit your experience, feel free to
+            If you don′t find any roles that fit your experience, feel free to
             apply through our general interest form!
           </p>
           <div className="basic-button">
