@@ -1,8 +1,7 @@
-font-face {
+@font-face {
   font-family: "Avenir 85 Heavy";
   font-weight: 800;
-  src: local("Avenir 85 Heavy"),
-    url(/fonts/avenir-85-heavy.ttf) format("opentype");
+  src: url("/fonts/avenir-85-heavy.woff2") format("woff2");
 }
 
 /* ===== COLOR PALETTE ===== */
@@ -17,11 +16,15 @@ font-face {
 
 html[data-theme="light"] {
   --font-color: var(--darker-black);
+  --light-font-color: var(--pastel-black);
   --bg-color: var(--bright-white);
+  --light-bg-color: var(--pastel-white);
 }
 html[data-theme="dark"] {
   --font-color: var(--bright-white);
+  --light-font-color: var(--pastel-white);
   --bg-color: var(--darker-black);
+  --light-bg-color: var(--pastel-black);
 }
 
 * {

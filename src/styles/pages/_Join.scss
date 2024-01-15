@@ -1,0 +1,139 @@
+.join-root {
+  position: relative;
+  min-height: calc(100vh - 88px);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .join-content {
+    margin: 100px 0 2.5rem;
+    display: flex;
+    gap: 2.5rem;
+    flex-direction: column;
+    max-width: 600px;
+
+    .header {
+      h1 {
+        color: var(--font-color);
+        margin-bottom: 0.5rem;
+        font-size: 2.5rem;
+      }
+      p {
+        color: var(--font-color);
+        line-height: 1.25rem;
+      }
+    }
+
+    .open-roles-container {
+      width: 100%;
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .open-roles-list-container {
+        .open-roles-list {
+          list-style-type: none;
+
+          .open-roles-list-item {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            gap: 1rem;
+
+            &:not(:last-child) {
+              margin-bottom: 1rem;
+            }
+
+            &:not(:last-child)::after {
+              position: absolute;
+              content: "";
+              display: block;
+              background-color: var(--font-color);
+              width: 100%;
+              height: 2px;
+              bottom: calc(-0.5rem - 1px);
+            }
+
+            .role-title {
+            }
+            .view-role {
+              white-space: nowrap;
+              color: var(--accent-color);
+              transition: filter 0.175s linear;
+
+              &:hover {
+                filter: brightness(60%);
+              }
+            }
+          }
+        }
+        .no-roles {
+          line-height: 1.25rem;
+        }
+      }
+    }
+    .general-interest-form {
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+      .basic-button {
+        a {
+          user-select: none;
+          font-size: 13px;
+          line-height: 40px;
+          display: inline-block;
+          border: 2px solid white;
+          appearance: none;
+          text-transform: uppercase;
+          font-weight: 500;
+          padding: 0 25px;
+          cursor: pointer;
+          color: white;
+          pointer-events: all;
+
+          &:hover {
+            background-color: white;
+            color: black;
+            transition-property: background-color, color;
+            transition-duration: 0.175s;
+            transition-timing-function: linear;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .join-root {
+    .join-content {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      gap: 2rem;
+
+      .header {
+        h1 {
+          font-size: 2.25rem;
+        }
+      }
+      .open-roles-container {
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+      .general-interest-form {
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

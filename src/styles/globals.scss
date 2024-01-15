@@ -6,7 +6,10 @@
 @use "components/ArticleGallery";
 @use "components/HomePage";
 @use "components/InDevelopment";
-@use "components/ScrollArrow";
+
+// ----- COMMON -----
+@use "components/common/ScrollArrow";
 
 // ===== PAGES =====
 @use "pages/About.scss";
+@use "pages/Join.scss";

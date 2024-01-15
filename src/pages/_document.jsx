@@ -43,6 +43,13 @@ export default function Document() {
           href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-text"
           rel="stylesheet"
         />
+        <link
+          rel="preload"
+          href="/fonts/avenir-85-heavy.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </Head>
       <body>
         <Main />

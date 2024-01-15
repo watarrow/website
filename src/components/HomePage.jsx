@@ -56,6 +56,9 @@ const HomePage = () => {
 
       {/* add scroll arrow when articles are added */}
       {/* <ScrollArrow /> */}
+
+      {/* Not sure about this yet */}
+      {/* <footer className="home-page-footer">{`WATARROW © ${new Date().getFullYear()}`}</footer> */}
     </div>
   );
 };

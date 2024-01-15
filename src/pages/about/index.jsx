@@ -5,7 +5,7 @@ import uwaterloo from "@/assets/uwaterloo.png";
 
 const About = () => {
   return (
-    <div className="about-root">
+    <main className="about-root">
       <div className="card-container">
         <div className="card">
           <div className="card-content">
@@ -50,7 +50,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 export default About;

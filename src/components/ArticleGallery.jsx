@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import ScrollArrow from "./ScrollArrow";
+import ScrollArrow from "./common/ScrollArrow";
 
 const ArticleGallery = ({ articles }) => {
   return (

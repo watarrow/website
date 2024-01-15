@@ -17,6 +17,10 @@
     justify-content: space-between;
     align-items: center;
 
+    &.navbar-background {
+      background-color: var(--bg-color);
+    }
+
     .logo-link {
       height: 50px;
       transform: scale(1.25);
@@ -67,6 +71,20 @@
             transform: scaleX(1);
             transform-origin: left center;
             transition-duration: 0.4s;
+          }
+        }
+      }
+
+      #special {
+        .link {
+          color: var(--accent-color);
+
+          &::selection {
+            background-color: var(--accent-color);
+          }
+
+          &::after {
+            background-color: var(--accent-color);
           }
         }
       }
