@@ -4,33 +4,7 @@ import Link from "next/link";
 import Arrow from "@/assets/logo-transparent-svg.svg";
 import MenuButton from "./MenuButton";
 
-const links = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
-  {
-    name: "Team",
-    href: "/team",
-  },
-  {
-    name: "Sponsors",
-    href: "/sponsors",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
-  {
-    name: "Join Us",
-    href: "/join",
-    special: true,
-  },
-];
+import links from "@/data/links";
 
 const Navbar = () => {
   const [showNavbarBackground, setShowNavbarBackground] = useState(false);
