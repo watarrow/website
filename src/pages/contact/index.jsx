@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <main className="contact-root">
       <div className="contact-container">
-        <div className="left">
+        <FadeIn delay={100} transitionDuration={700} className="left">
           <div className="header">
             <h1>CONTACT US</h1>
             <p>
@@ -26,11 +26,11 @@ const Contact = () => {
               </Link>
             </div>
           ))}
-        </div>
+        </FadeIn>
         <div className="right">
-          <div className="logo">
+          <FadeIn delay={600} transitionDuration={700} className="logo">
             <Arrow />
-          </div>
+          </FadeIn>
         </div>
       </div>
     </main>
