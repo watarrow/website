@@ -41,6 +41,19 @@
         text-transform: uppercase;
       }
     }
+    #special {
+      .menu-link {
+        color: var(--accent-color);
+
+        &::selection {
+          background-color: var(--accent-color);
+        }
+
+        &::after {
+          background-color: var(--accent-color);
+        }
+      }
+    }
   }
 }
 
