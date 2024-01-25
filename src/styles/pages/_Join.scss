@@ -68,10 +68,15 @@
               &:hover {
                 filter: brightness(60%);
               }
+
+              &::selection {
+                background-color: var(--accent-color);
+              }
             }
           }
         }
         .no-roles {
+          padding-top: 0.5rem;
           line-height: 1.25rem;
         }
       }

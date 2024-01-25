@@ -1,11 +1,12 @@
 import Link from "next/link";
+import FadeIn from "react-fade-in";
 
 import roles from "@/data/roles";
 
 const Join = () => {
   return (
     <main className="join-root">
-      <div className="join-content">
+      <FadeIn delay={150} transitionDuration={750} className="join-content">
         <div className="header">
           <h1>JOIN US</h1>
           <p>
@@ -35,7 +36,9 @@ const Join = () => {
               </ul>
             ) : (
               <p className="no-roles">
-                It looks like we don′t have any open roles at the moment.
+                It looks like we don′t have any open roles at the moment. Please
+                check again another time or apply through our General Interest
+                Form.
               </p>
             )}
           </div>
@@ -50,7 +53,7 @@ const Join = () => {
             <Link href="https://forms.gle/dfdu8PrBZMSMMvWBA">Apply</Link>
           </div>
         </div>
-      </div>
+      </FadeIn>
     </main>
   );
 };
