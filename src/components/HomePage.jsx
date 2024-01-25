@@ -24,7 +24,7 @@ const HomePage = () => {
             of Waterloo.
           </p>
           <div className="button-container">
-            <Link href="/about">Learn more</Link>
+            <Link href="/contact">Learn more</Link>
           </div>
         </FadeIn>
 
