@@ -93,6 +93,7 @@
         width: 200vw;
         height: 100%;
         cursor: grab;
+        user-select: none;
 
         & * {
           height: 100%;
@@ -103,6 +104,7 @@
 
     .spacer {
       display: none;
+      user-select: none;
     }
   }
 
@@ -117,6 +119,24 @@
     user-select: none;
     pointer-events: none;
   }
+}
+
+// hide elements while dragging
+.home-page-root .home-page-footer,
+.home-page-root .left,
+.navbar,
+.mobile-navbar {
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+.home-page-root:active .home-page-footer,
+.home-page-root:active .left,
+.layout:has(.home-page-root):active .navbar,
+.layout:has(.home-page-root):active .mobile-navbar {
+  opacity: 0;
+}
+.navbar:active,
+.mobile-navbar:active {
+  opacity: 1 !important;
 }
 
 @media (max-width: 1600px) {
