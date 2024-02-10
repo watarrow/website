@@ -10,14 +10,25 @@
     width: 100vw;
     position: relative;
 
-    animation: fadeIn 3s;
+    animation: fadeIn 1.5s;
   }
 
   .article-image {
     height: 100vh;
     width: 100vw;
     object-fit: cover;
-    filter: brightness(75%);
+    filter: brightness(60%);
+  }
+
+  .no-articles-container {
+    height: calc(100vh - 100px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .no-articles {
+      line-height: 1.25rem;
+    }
   }
 }
 
@@ -27,5 +38,15 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .article-gallery-container {
+    .no-articles-container {
+      .no-articles {
+        margin: 0 1.5rem;
+      }
+    }
   }
 }
