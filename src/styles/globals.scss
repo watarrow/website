@@ -7,9 +7,11 @@
 @use "components/HomePage";
 @use "components/InDevelopment";
 @use "components/ScrollArrow";
+@use "components/SponsorList.scss";
 
 // ===== PAGES =====
 @use "pages/About.scss";
 @use "pages/Team.scss";
 @use "pages/Contact";
 @use "pages/Join.scss";
+@use "pages/Sponsor.scss";

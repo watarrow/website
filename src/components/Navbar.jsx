@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import FadeIn from "react-fade-in/lib/FadeIn";
 
 import Arrow from "@/assets/logo-transparent-svg.svg";
 import MenuButton from "./MenuButton";
@@ -42,42 +41,36 @@ const Navbar = () => {
   };
 
   return (
-    <FadeIn transitionDuration={750}>
-      <nav
-        className={`navbar ${showNavbarBackground ? "navbar-background" : ""}`}
-      >
-        <div className="navbar-container">
-          <Link
-            className="logo-link"
-            href="/"
-            onClick={() => setMenuOpen(false)}
-          >
-            <Arrow height="100%" />
-          </Link>
-          {/* collapsed menu for mobile */}
-          <ul className="links-list">
-            {links.map((link, i) => (
-              <li
-                className="links-list-item"
-                id={link.special && "special"}
-                key={i}
-              >
-                <Link className="link" href={link.href}>
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <MenuButton
-            links={links}
-            menuOpen={menuOpen}
-            setMenuOpen={setMenuOpen}
-            showBackground={showBackground}
-            setShowBackground={setShowBackground}
-          />
-        </div>
-      </nav>
-    </FadeIn>
+    <nav
+      className={`navbar ${showNavbarBackground ? "navbar-background" : ""}`}
+    >
+      <div className="navbar-container">
+        <Link className="logo-link" href="/" onClick={() => setMenuOpen(false)}>
+          <Arrow height="100%" />
+        </Link>
+        {/* collapsed menu for mobile */}
+        <ul className="links-list">
+          {links.map((link, i) => (
+            <li
+              className="links-list-item"
+              id={link.special && "special"}
+              key={i}
+            >
+              <Link className="link" href={link.href}>
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <MenuButton
+          links={links}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          showBackground={showBackground}
+          setShowBackground={setShowBackground}
+        />
+      </div>
+    </nav>
   );
 };
 
