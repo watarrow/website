@@ -1,4 +1,3 @@
-// PLATINUM
 import weef from "@/assets/sponsors/weef.webp";
 import waterlooEngineering from "@/assets/sponsors/waterloo-engineering.jpeg";
 import msam from "@/assets/sponsors/msam.jpeg";

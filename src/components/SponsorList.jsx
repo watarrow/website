@@ -9,7 +9,7 @@ const TierSponsor = ({ sponsors }) => {
         <Link
           key={i}
           href={sponsor.link}
-          className="sponsor-link"
+          className="sponsor-button"
           title={sponsor.name}
         >
           <Image
