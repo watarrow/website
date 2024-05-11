@@ -6,13 +6,13 @@ const roles = [
   //   visible: true,
   // },
   // {
-  //   title: "Business Team - General Member",
+  //   title: "Engineering Team - General Member",
   //   description: "",
   //   href: "",
   //   visible: true,
   // },
   // {
-  //   title: "Engineering Team - General Member",
+  //   title: "Business Team - General Member",
   //   description: "",
   //   href: "",
   //   visible: true,

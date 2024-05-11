@@ -1,0 +1,76 @@
+.sponsors-root {
+  min-height: 100vh;
+  margin: 100px 0 2.5rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .sponsors-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .header {
+      h1 {
+        margin: 0.5rem 0;
+        font-size: 2.5rem;
+      }
+      .basic-button {
+        margin-top: 1rem;
+        a {
+          user-select: none;
+          font-size: 13px;
+          line-height: 40px;
+          display: inline-block;
+          border: 2px solid white;
+          appearance: none;
+          text-transform: uppercase;
+          font-weight: 500;
+          padding: 0 25px;
+          cursor: pointer;
+          color: white;
+          pointer-events: all;
+
+          &:hover {
+            background-color: white;
+            color: black;
+            transition-property: background-color, color;
+            transition-duration: 0.175s;
+            transition-timing-function: linear;
+          }
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin: 0.5rem 0;
+    }
+
+    .get-in-touch {
+      .email {
+        color: var(--accent-color);
+        transition: filter 0.175s linear;
+        &:hover {
+          filter: brightness(60%);
+        }
+        &::selection {
+          background-color: var(--accent-color);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .sponsors-root {
+    .sponsors-container {
+      max-width: initial;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+}

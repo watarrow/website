@@ -4,8 +4,6 @@ import FadeIn from "react-fade-in";
 import Link from "next/link";
 import useBetterMediaQuery from "@/hooks/useBetterMediaQuery";
 
-// import ScrollArrow from "./ScrollArrow";
-
 import WatArrow from "@/assets/watarrow-word-logo.svg";
 
 const HomePage = () => {
@@ -54,11 +52,9 @@ const HomePage = () => {
         <div className="spacer"></div>
       </div>
 
-      {/* add scroll arrow when articles are added */}
-      {/* <ScrollArrow /> */}
-
-      {/* Not sure about this yet */}
-      {/* <footer className="home-page-footer">{`WATARROW © ${new Date().getFullYear()}`}</footer> */}
+      <FadeIn delay={1000} transitionDuration={750}>
+        <footer className="home-page-footer">{`WATARROW © ${new Date().getFullYear()}`}</footer>
+      </FadeIn>
     </div>
   );
 };

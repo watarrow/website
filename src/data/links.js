@@ -12,8 +12,12 @@ const links = [
     href: "/team",
   },
   {
-    name: "Sponsors",
-    href: "/sponsors",
+    name: "Blog",
+    href: "/blog",
+  },
+  {
+    name: "Sponsor",
+    href: "/sponsor",
   },
   {
     name: "Contact",

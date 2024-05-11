@@ -5,7 +5,21 @@
   width: 100vw;
   z-index: 999999;
 
-  transition: opacity 0.2s linear 0.1s;
+  transition: opacity 0.2s linear 0.1s, background-color 0.2s linear 0.1s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    transition: height 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+  }
+  &.navbar-background::before {
+    height: 100%;
+  }
 
   .navbar-container {
     padding: 0 25px;
@@ -16,10 +30,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    &.navbar-background {
-      background-color: var(--bg-color);
-    }
 
     .logo-link {
       height: 50px;

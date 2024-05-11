@@ -11,9 +11,16 @@ import "@/styles/globals.scss";
 export default function App({ Component, pageProps }) {
   // allowed routes
   const router = useRouter();
-  const routes = ["/", "/contact", "/join"];
+  const routes = new Set([
+    "/",
+    "/team",
+    "/sponsor",
+    "/blog",
+    "/contact",
+    "/join",
+  ]);
 
-  if (!routes.includes(router.pathname))
+  if (!routes.has(router.pathname))
     return (
       <ThemeProvider>
         {/* <NextNProgress {...nextNProgressProps} /> */}

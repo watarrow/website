@@ -3,16 +3,16 @@ import { useMediaQuery } from "@mui/material";
 
 const links = [
   {
-    name: "About",
-    href: "/about",
-  },
-  {
-    name: "Join Us",
-    href: "/join",
+    name: "Sponsor",
+    href: "/sponsor",
   },
   {
     name: "Contact",
     href: "/contact",
+  },
+  {
+    name: "Join Us",
+    href: "/join",
   },
 ];
 

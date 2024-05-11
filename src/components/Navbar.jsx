@@ -19,12 +19,14 @@ const Navbar = () => {
   const scrollFunction = () => {
     let scrollTop =
       document.body.scrollTop || document.documentElement.scrollTop;
-    console.log(scrollTop);
     if (scrollTop > 100) {
       setMenuOpen(false);
       setShowBackground(false);
+    }
+
+    if (scrollTop > window.innerHeight) {
       setShowNavbarBackground(true);
-    } else if (scrollTop < 100) {
+    } else if (scrollTop < window.innerHeight) {
       setShowNavbarBackground(false);
     }
 
@@ -39,12 +41,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
-      <div
-        className={`navbar-container ${
-          showNavbarBackground ? "navbar-background" : ""
-        }`}
-      >
+    <nav
+      className={`navbar ${showNavbarBackground ? "navbar-background" : ""}`}
+    >
+      <div className="navbar-container">
         <Link className="logo-link" href="/" onClick={() => setMenuOpen(false)}>
           <Arrow height="100%" />
         </Link>

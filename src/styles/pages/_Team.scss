@@ -1,0 +1,29 @@
+.team-root {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .team-container {
+    max-width: 1000px;
+    margin: 100px 0 2.5rem;
+    // background: red;
+    height: 2000px;
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .we-are-watarrow {
+        user-select: none;
+      }
+    }
+
+    .warg-bay {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
