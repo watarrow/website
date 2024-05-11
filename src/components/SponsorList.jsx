@@ -12,15 +12,17 @@ const TierSponsor = ({ sponsors }) => {
           className="sponsor-button"
           title={sponsor.name}
         >
-          <Image
-            src={sponsor.logo}
-            alt={sponsor.name}
-            className="sponsor-logo"
-            placeholder="blur"
-            fill
-            sizes="100%"
-            style={sponsor.style}
-          />
+          <div className="image-container">
+            <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              className="sponsor-logo"
+              placeholder="blur"
+              fill
+              sizes="100%"
+              style={sponsor.style}
+            />
+          </div>
         </Link>
       ))}
     </div>
