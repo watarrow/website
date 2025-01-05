@@ -56,7 +56,7 @@ const Join = () => {
               apply through our general interest form!
             </p>
             <div className="basic-button">
-              <Link href="https://forms.gle/dfdu8PrBZMSMMvWBA">Apply</Link>
+              <Link href="https://forms.gle/ejyigXFo5v9J3aLV6">Apply</Link>
             </div>
           </div>
         </FadeIn>
