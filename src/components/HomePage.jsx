@@ -35,12 +35,12 @@ const HomePage = () => {
               transitionDuration={750}
             >
               <StlViewer
-                url="/models/plane.stl"
+                url="/models/simplify_plane.stl"
                 modelProps={{
-                  color: "#cd8900",
-                  scale: isMobile ? 0.8 : 2,
-                  positionY: isMobile ? null : 50,
-                  rotationZ: Math.PI / 8,
+                  color: "#946300",
+                  scale: isMobile ? 0.65 : 1.5,
+                  positionX: 0,
+                  positionY: 0,
                 }}
                 orbitControls
                 className="stl-viewer"

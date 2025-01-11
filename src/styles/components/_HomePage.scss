@@ -89,7 +89,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-53%, -50%); // change as necessary
+        transform: translate(-50%, -50%); // change as necessary
         width: 200vw;
         height: 100%;
         cursor: grab;
@@ -148,7 +148,7 @@
       }
       .right {
         .stl-viewer-container {
-          transform: translate(-54%, -50%);
+          transform: translate(-50%, -50%);
         }
       }
       .spacer {
@@ -190,7 +190,7 @@
         height: 25%;
 
         .stl-viewer-container {
-          transform: translate(-39%, -50%);
+          transform: translate(-50%, -50%);
           height: 140vh;
           width: 130vw;
         }
