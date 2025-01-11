@@ -13,54 +13,94 @@
     gap: 100px;
 
     .left {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       z-index: 99999;
       padding-right: 200px;
       margin-right: -200px;
-
       pointer-events: none;
 
-      .logo-container {
-        height: 140px;
-        margin-left: -40px;
+      .statistics {
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        max-width: 60%;
+        position: absolute;
+        user-select: none;
+        color: var(--font-color);
 
-        .watarrow-word-logo_svg__cls-1 {
-          user-select: none;
+        h2 {
+          font-size: 3rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+          margin-top: 1.5rem;
+          margin-bottom: 0;
+        }
+
+        p {
+          margin-top: 0.5rem;
+        }
+
+        p,
+        ul {
+          font-size: 1rem;
+        }
+
+        ul {
+          margin-top: 1rem;
+          list-style-position: inside;
+
+          li {
+            margin-bottom: 0.25rem;
+          }
         }
       }
 
-      p {
-        font-size: 20px;
-        line-height: 30px;
-        user-select: none;
-        color: var(--font-color);
-      }
+      .title {
+        .logo-container {
+          height: 140px;
+          margin-left: -40px;
 
-      .button-container {
-        margin-top: 30px;
+          .watarrow-word-logo_svg__cls-1 {
+            user-select: none;
+          }
+        }
 
-        a {
+        p {
+          font-size: 20px;
+          line-height: 30px;
           user-select: none;
-          font-size: 13px;
-          line-height: 40px;
-          display: inline-block;
-          border: 2px solid white;
-          appearance: none;
-          text-transform: uppercase;
-          font-weight: 500;
-          padding: 0 25px;
-          cursor: pointer;
-          color: white;
-          pointer-events: all;
+          color: var(--font-color);
+        }
 
-          &:hover {
-            background-color: white;
-            color: black;
-            transition-property: background-color, color;
-            transition-duration: 0.175s;
-            transition-timing-function: linear;
+        .button-container {
+          margin-top: 30px;
+
+          a {
+            user-select: none;
+            font-size: 13px;
+            line-height: 40px;
+            display: inline-block;
+            border: 2px solid white;
+            appearance: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 0 25px;
+            cursor: pointer;
+            color: white;
+            pointer-events: all;
+
+            &:hover {
+              background-color: white;
+              color: black;
+              transition-property: background-color, color;
+              transition-duration: 0.175s;
+              transition-timing-function: linear;
+            }
           }
         }
       }
@@ -123,19 +163,21 @@
 
 // hide elements while dragging
 .home-page-root .home-page-footer,
-.home-page-root .left,
+.home-page-root .title,
+.home-page-root .statistics,
 .navbar,
 .mobile-navbar {
   transition: opacity 0.5s cubic-bezier(0.25, 1, 0.25, 1);
 }
 .home-page-root:active .home-page-footer,
-.home-page-root:active .left,
+.home-page-root:active .title,
 .layout:has(.home-page-root):active .navbar,
 .layout:has(.home-page-root):active .mobile-navbar {
   opacity: 0;
 }
 .navbar:active,
-.mobile-navbar:active {
+.mobile-navbar:active,
+.home-page-root:active .statistics {
   opacity: 1 !important;
 }
 
@@ -143,6 +185,7 @@
   .home-page-root {
     .home-page-container {
       gap: 0;
+
       .left {
         padding-left: 100px;
       }
@@ -171,18 +214,37 @@
         margin-right: 0;
         padding: 0 25px;
 
-        .logo-container {
-          height: 80px;
-          margin-left: -20px;
+        .statistics {
+          max-width: 100%;
+          padding-right: 25px;
+          transform: translateY(20%);
+
+          h2 {
+            font-size: 2rem;
+          }
+          h3 {
+            font-size: 1.25rem;
+          }
+          p,
+          ul {
+            font-size: 0.8rem;
+          }
         }
 
-        .text-container {
-          font-size: 18px;
-          line-height: 25px;
-        }
+        .title {
+          .logo-container {
+            height: 80px;
+            margin-left: -20px;
+          }
 
-        .button-container {
-          margin-top: 20px;
+          .text-container {
+            font-size: 18px;
+            line-height: 25px;
+          }
+
+          .button-container {
+            margin-top: 20px;
+          }
         }
       }
 

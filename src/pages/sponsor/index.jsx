@@ -45,7 +45,7 @@ const Sponsor = () => {
             <p>
               Contact us at{" "}
               <Link className="email" href="mailto:waterlooarrow@gmail.com">
-                waterlooarrow@gmail.com
+                business@watarrow.com
               </Link>{" "}
               for more information!
             </p>

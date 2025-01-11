@@ -32,6 +32,25 @@ const Contact = () => {
                 </Link>
               </div>
             ))}
+            <div className="social">
+              <h2>Social Media</h2>
+              <p>
+                <Link
+                  className="link"
+                  href="https://ca.linkedin.com/company/watarrow"
+                >
+                  LinkedIn
+                </Link>
+              </p>
+              <p>
+                <Link
+                  className="link"
+                  href="https://www.instagram.com/uwatarrow"
+                >
+                  Instagram
+                </Link>
+              </p>
+            </div>
           </FadeIn>
           <div className="right">
             <FadeIn delay={600} transitionDuration={700} className="logo">

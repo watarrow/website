@@ -9,6 +9,9 @@ import sff from "@/assets/sponsors/sff.jpeg";
 import greatHobbies from "@/assets/sponsors/great-hobbies.png";
 import compositesCanada from "@/assets/sponsors/composites-canada.png";
 import rockWestComposites from "@/assets/sponsors/rock-west-composites.jpg";
+import zoltek from "@/assets/sponsors/zoltek.png";
+import apc from "@/assets/sponsors/apc.webp";
+import gorilla from "@/assets/sponsors/gorilla.png";
 
 const sponsors = [
   {
@@ -65,6 +68,11 @@ const sponsors = [
         link: "https://uwaterloo.ca/sandford-fleming-foundation/",
         logo: sff,
       },
+      {
+        name: "Gorilla Glue",
+        link: "https://gorillatough.com/",
+        logo: gorilla,
+      },
     ],
   },
   {
@@ -79,6 +87,16 @@ const sponsors = [
         name: "Rock West Composites",
         link: "https://www.rockwestcomposites.com/",
         logo: rockWestComposites,
+      },
+      {
+        name: "Zoltek",
+        link: "https://zoltek.com/",
+        logo: zoltek,
+      },
+      {
+        name: "APC Propellers",
+        link: "https://www.apcprop.com/",
+        logo: apc,
       },
     ],
   },

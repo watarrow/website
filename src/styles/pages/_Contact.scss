@@ -33,6 +33,19 @@
           }
         }
       }
+
+      .social {
+        .link {
+          color: var(--accent-color);
+          transition: filter 0.175s linear;
+          &:hover {
+            filter: brightness(60%);
+          }
+          &::selection {
+            background-color: var(--accent-color);
+          }
+        }
+      }
     }
 
     .right {

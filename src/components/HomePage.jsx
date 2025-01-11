@@ -13,18 +13,51 @@ const HomePage = () => {
   return (
     <div className="home-page-root">
       <div className="home-page-container">
-        <FadeIn delay={150} transitionDuration={750} className="left">
-          <div className="logo-container">
-            <WatArrow height="100%" />
+        <div className="left">
+          <FadeIn delay={150} transitionDuration={750} className="title">
+            <div className="logo-container">
+              <WatArrow height="100%" />
+            </div>
+            <p>
+              Aircrafts designed and built by student engineers at the
+              University of Waterloo.
+            </p>
+            <div className="button-container">
+              <Link href="/contact">Learn more</Link>
+            </div>
+          </FadeIn>
+
+          <div className="statistics">
+            <h2>Eve</h2>
+            <p>
+              Eve was the first competition aircraft designed by WatArrow. Built
+              and tested in the course of just two months, the team placed 10th
+              out of 19th with the design in the 2024 SAE Aero Design East
+              competition. Ansys CFD and FEA were used to optimize the
+              aerodynamics and structure of the aircraft, while SOLIDWORKS
+              simulation was used to run topological optimization on many parts
+              of the aircraft.
+            </p>
+            <ul>
+              <li>36-inch wingspan</li>
+              <li>Topologically optimised tail and nosecone</li>
+              <li>2.1 kg of thrust</li>
+              <li>Biplane design for higher wing surface area</li>
+              <li>68 oz payload tank</li>
+            </ul>
+
+            <h3>Contributors</h3>
+            <ul>
+              <li>Joshua Perry</li>
+              <li>Emma Keeping</li>
+              <li>Thomas Kim</li>
+              <li>Arman Eklasi</li>
+              <li>Henry Xi</li>
+              <li>Nicholas Iafrate</li>
+              <li>Anastasia Kimovska</li>
+            </ul>
           </div>
-          <p>
-            Aircrafts designed and built by student engineers at the University
-            of Waterloo.
-          </p>
-          <div className="button-container">
-            <Link href="/contact">Learn more</Link>
-          </div>
-        </FadeIn>
+        </div>
 
         <div className="right">
           <div className={`cover ${isLoaded ? "loaded" : ""}`}></div>
@@ -37,7 +70,7 @@ const HomePage = () => {
               <StlViewer
                 url="/models/simplify_plane.stl"
                 modelProps={{
-                  color: "#946300",
+                  color: "#805500",
                   scale: isMobile ? 0.65 : 1.5,
                   positionX: 0,
                   positionY: 0,
