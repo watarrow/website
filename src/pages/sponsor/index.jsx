@@ -35,8 +35,8 @@ const Sponsor = () => {
           </div>
 
           <div className="section">
-            <h2>2023-2024 SPONSORS</h2>
-            <p>Thank you to our sponsors!</p>
+            <h2>2024 SPONSORS</h2>
+            <p>We appreciate your support!</p>
           </div>
           <SponsorList sponsors={sponsors} />
 

@@ -169,10 +169,7 @@
 .mobile-navbar {
   transition: opacity 0.5s cubic-bezier(0.25, 1, 0.25, 1);
 }
-.home-page-root:active .home-page-footer,
-.home-page-root:active .title,
-.layout:has(.home-page-root):active .navbar,
-.layout:has(.home-page-root):active .mobile-navbar {
+.home-page-root:active .title {
   opacity: 0;
 }
 .navbar:active,
