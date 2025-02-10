@@ -4,10 +4,11 @@
 @use "components/MenuButton";
 @use "components/Navbar";
 @use "components/ArticleGallery";
-@use "components/HomePage";
 @use "components/InDevelopment";
 @use "components/ScrollArrow";
 @use "components/SponsorList.scss";
+@use "components/BlogPost";
+@use "components/ReactMarkdown";
 
 // ===== PAGES =====
 @use "pages/About.scss";
@@ -15,3 +16,4 @@
 @use "pages/Contact";
 @use "pages/Join.scss";
 @use "pages/Sponsor.scss";
+@use "pages/Index.scss";

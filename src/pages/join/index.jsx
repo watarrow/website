@@ -2,9 +2,11 @@ import Link from "next/link";
 import FadeIn from "react-fade-in";
 import Head from "next/head";
 
-import roles from "@/data/roles";
+import directus from "@/lib/directus";
+import { readItems } from "@directus/sdk";
+import { isProd } from "@/utils/environment";
 
-const Join = () => {
+const Join = ({ roles }) => {
   return (
     <>
       <Head>
@@ -26,19 +28,20 @@ const Join = () => {
           <div className="open-roles-container">
             <h2>OPEN ROLES</h2>
             <div className="open-roles-list-container">
-              {roles.length > 0 ? (
+              {roles?.length > 0 ? (
                 <ul className="open-roles-list">
-                  {roles.map(
-                    (role, i) =>
-                      role.visible && (
-                        <li className="open-roles-list-item" key={i}>
-                          <p className="role-title">{role.title}</p>
-                          <Link className="view-role" href={role.href}>
-                            View Role
-                          </Link>
-                        </li>
-                      )
-                  )}
+                  {roles.map((role, i) => (
+                    <li className="open-roles-list-item" key={i}>
+                      <p className="role-title">{role.title}</p>
+                      <Link
+                        className="view-role"
+                        href={role.link}
+                        target="_blank"
+                      >
+                        View Role
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               ) : (
                 <p className="no-roles">
@@ -65,3 +68,24 @@ const Join = () => {
   );
 };
 export default Join;
+
+export const getServerSideProps = async () => {
+  const roles = await directus.request(
+    readItems("roles", {
+      sort: ["sort"],
+      ...(isProd() && {
+        filter: {
+          status: {
+            _eq: "PUBLISHED",
+          },
+        },
+      }),
+    })
+  );
+
+  return {
+    props: {
+      roles,
+    },
+  };
+};

@@ -29,6 +29,7 @@
       width: 100%;
 
       h2 {
+        color: var(--font-color);
         font-size: 1.75rem;
       }
 
@@ -76,6 +77,7 @@
           }
         }
         .no-roles {
+          color: var(--font-color);
           padding-top: 0.5rem;
           line-height: 1.25rem;
         }
@@ -83,10 +85,12 @@
     }
     .general-interest-form {
       h2 {
+        color: var(--font-color);
         font-size: 1.75rem;
         margin-bottom: 0.5rem;
       }
       p {
+        color: var(--font-color);
         margin-bottom: 1rem;
       }
       .basic-button {

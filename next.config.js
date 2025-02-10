@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const DIRECTUS_CDN_HOSTNAME = process.env.NEXT_PUBLIC_DIRECTUS_CDN_HOSTNAME;
+
 module.exports = {
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -34,4 +36,15 @@ module.exports = {
   },
 
   reactStrictMode: true,
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: DIRECTUS_CDN_HOSTNAME,
+        port: "",
+        pathname: "/assets/**",
+      },
+    ],
+  },
 };

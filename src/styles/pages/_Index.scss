@@ -79,6 +79,9 @@
 
         .button-container {
           margin-top: 30px;
+          background: transparent;
+          outline: 0;
+          border: none;
 
           a {
             user-select: none;

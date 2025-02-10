@@ -1,21 +1,33 @@
 import Image from "next/image";
+import Link from "next/link";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
 import ScrollArrow from "./ScrollArrow";
 
 const ArticleGallery = ({ articles }) => {
+  const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
+
   return (
     <div className="article-gallery-container">
       {articles.length > 0 ? (
         articles.map((article, i) => (
           <div className="article-container" key={i}>
             <Image
-              src={article.image}
+              fill
+              src={`${DIRECTUS_CDN_URL}/assets/${article.image}`}
               alt={article.title}
-              placeholder="blur"
               className="article-image"
+              draggable="false"
             />
-            <h1 className="article-title">{article.title}</h1>
+            <div className="article-info">
+              <h1 className="article-title">{article.title}</h1>
+              {article.subtitle && (
+                <p className="article-subtitle">{article.subtitle}</p>
+              )}
+              <button className="button-container">
+                <Link href={`/blog/${article.id}`}>Read Blog</Link>
+              </button>
+            </div>
             {i == articles.length - 1 || <ScrollArrow />}
           </div>
         ))

@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 
 const TierSponsor = ({ sponsors }) => {
+  const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
+
   return (
     <div className="tier-sponsors">
       {sponsors.map((sponsor, i) => (
@@ -14,10 +16,9 @@ const TierSponsor = ({ sponsors }) => {
         >
           <div className="image-container">
             <Image
-              src={sponsor.logo}
+              src={`${DIRECTUS_CDN_URL}/assets/${sponsor.logo}`}
               alt={sponsor.name}
               className="sponsor-logo"
-              placeholder="blur"
               fill
               sizes="100%"
               style={sponsor.style}
@@ -34,7 +35,7 @@ const SponsorList = ({ sponsors }) => {
     <div className="sponsor-list-root">
       {sponsors.map((tier, i) => (
         <div key={i} className="tier-container">
-          <h3>{tier.tier}</h3>
+          <h3>{tier.name}</h3>
           <hr />
           <TierSponsor sponsors={tier.sponsors} />
         </div>

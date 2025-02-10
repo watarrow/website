@@ -4,9 +4,10 @@ import Head from "next/head";
 
 import Arrow from "@/assets/logo-transparent-svg.svg";
 
-import contacts from "@/data/contact";
+import directus from "@/lib/directus";
+import { readItems } from "@directus/sdk";
 
-const Contact = () => {
+const Contact = ({ contacts }) => {
   return (
     <>
       <Head>
@@ -63,3 +64,17 @@ const Contact = () => {
   );
 };
 export default Contact;
+
+export const getServerSideProps = async () => {
+  const contacts = await directus.request(
+    readItems("contacts", {
+      sort: ["sort"],
+    })
+  );
+
+  return {
+    props: {
+      contacts,
+    },
+  };
+};
