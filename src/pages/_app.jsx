@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     );
 
   return (
-    <ThemeProvider defaultTheme="dark">
+    <ThemeProvider defaultTheme="dark" enableSystem={false}>
       <Layout>
         {/* <NextNProgress {...nextNProgressProps} /> */}
         <Component {...pageProps} />

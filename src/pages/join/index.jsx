@@ -59,7 +59,7 @@ const Join = ({ roles }) => {
               apply through our general interest form!
             </p>
             <div className="basic-button">
-              <Link href="https://forms.gle/ejyigXFo5v9J3aLV6">Apply</Link>
+              <Link href="https://forms.gle/NjSRLQ4k9VWdeHFK8">Apply</Link>
             </div>
           </div>
         </FadeIn>
