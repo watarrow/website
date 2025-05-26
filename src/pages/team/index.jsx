@@ -280,7 +280,7 @@ const Team = ({ content }) => {
             width={9520}
             height={6336}
             style={{
-              opacity: 0.75,
+              opacity: 0.67,
               objectFit: "cover",
               objectPosition: "64% 50%",
               height: "100vh",
