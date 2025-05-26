@@ -33,6 +33,7 @@
 
         h2 {
           font-size: 3rem;
+          color: #fed11c;
         }
 
         h3 {
@@ -53,8 +54,10 @@
         ul {
           margin-top: 1rem;
           list-style-position: inside;
+          list-style: none;
 
           li {
+            color: #fed11c;
             margin-bottom: 0.25rem;
           }
         }

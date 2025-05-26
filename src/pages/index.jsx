@@ -12,7 +12,7 @@ export default function Home() {
   const isMobile = useBetterMediaQuery("(max-width: 800px)");
 
   const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
-  const modelUrl = `${DIRECTUS_CDN_URL}/assets/74c94b09-df8c-48a3-8386-d5eccac3c33a.stl`;
+  const modelUrl = `${DIRECTUS_CDN_URL}/assets/a837af33-97b7-4965-8888-06a78cfcec81.stl`;
 
   return (
     <>
@@ -38,34 +38,27 @@ export default function Home() {
               </FadeIn>
 
               <div className="statistics">
-                <h2>EVE</h2>
+                <h2>DART</h2>
                 <p>
-                  Eve was the first competition aircraft designed by WatArrow.
-                  Built and tested in the course of just two months, the team
-                  placed 10th out of 19th with the design in the 2024 SAE Aero
-                  Design East competition. Ansys CFD and FEA were used to
-                  optimize the aerodynamics and structure of the aircraft, while
-                  SOLIDWORKS simulation was used to run topological optimization
-                  on many parts of the aircraft.
+                  DART is the second competition aircraft deisgned by WatArrow.
+                  Built and tested in the course of over 8 months, the team
+                  placed 3rd in the mission component and 5th overall at SAE
+                  Aero Design East 2025.
                 </p>
                 <ul>
-                  <li>36-inch wingspan</li>
-                  <li>Topologically optimised tail and nosecone</li>
-                  <li>2.1 kg of thrust</li>
-                  <li>Biplane design for higher wing surface area</li>
-                  <li>68 oz payload tank</li>
+                  <li>1.3 kg dry mass</li>
+                  <li>{"<"}5 ft takeoff distance</li>
+                  <li>Molduar design for quick repairs</li>
+                  <li>70 oz payload tank</li>
                 </ul>
 
                 <h3>CONTRIBUTORS</h3>
-                <ul>
-                  <li>Joshua Perry</li>
-                  <li>Emma Keeping</li>
-                  <li>Thomas Kim</li>
-                  <li>Arman Eklasi</li>
-                  <li>Henry Xi</li>
-                  <li>Nicholas Iafrate</li>
-                  <li>Anastasia Kimovska</li>
-                </ul>
+                <p>
+                  Joshua Perry, Nicholas Iafrate, Thomas Kim, Henry Xi, Arman
+                  Eklasi, Sayan Saha, Veronika Markovich, Lesley Lang, Riya
+                  Vaidya, Derek Chu, Donald Alexander, Lucas Lu, Jerry Yan,
+                  Kevin Gong, Sarah Gu
+                </p>
               </div>
             </div>
 
@@ -84,6 +77,7 @@ export default function Home() {
                       scale: isMobile ? 0.65 : 1.5,
                       positionX: 0,
                       positionY: 0,
+                      rotationZ: Math.PI / 6,
                     }}
                     orbitControls
                     className="stl-viewer"
