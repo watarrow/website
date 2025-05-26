@@ -249,7 +249,7 @@ const Team = ({ content }) => {
                   Sarah Gu <span className="yellow">Propulsion Lead</span>
                 </p>
                 <p>
-                  Riiya Vaidya <span className="yellow">Aerodynamics Lead</span>
+                  Riya Vaidya <span className="yellow">Aerodynamics Lead</span>
                 </p>
               </div>
               <div className="section">
