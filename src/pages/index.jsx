@@ -40,7 +40,7 @@ export default function Home() {
               <div className="statistics">
                 <h2>DART</h2>
                 <p>
-                  DART is the second competition aircraft deisgned by WatArrow.
+                  DART is the second competition aircraft designed by WatArrow.
                   Built and tested in the course of over 8 months, the team
                   placed 3rd in the mission component and 5th overall at SAE
                   Aero Design East 2025.

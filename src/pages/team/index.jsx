@@ -189,7 +189,12 @@ const Team = ({ content }) => {
           <Image
             width={9520}
             height={6336}
-            style={{ objectFit: "cover", height: "100vh", width: "100%" }}
+            style={{
+              objectFit: "cover",
+              objectPosition: "45% 50%",
+              height: "100vh",
+              width: "100%",
+            }}
             src={`${DIRECTUS_CDN_URL}/assets/${content.comp_image}`}
             alt="WatArrow members watch their aircraft fly at competition"
           />
@@ -275,8 +280,9 @@ const Team = ({ content }) => {
             width={9520}
             height={6336}
             style={{
-              opacity: 0.67,
+              opacity: 0.75,
               objectFit: "cover",
+              objectPosition: "60% 50%",
               height: "100vh",
               width: "100%",
             }}
