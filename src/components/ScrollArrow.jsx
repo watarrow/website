@@ -1,6 +1,6 @@
 const ScrollArrow = () => {
   return (
-    <div className="arrow-container">
+    <div className="scroll-arrow-container">
       <div className="arrow"></div>
     </div>
   );

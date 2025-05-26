@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import FadeIn from "react-fade-in/lib/FadeIn";
+import FadeIn from "react-fade-in";
 
 import ScrollArrow from "./ScrollArrow";
 

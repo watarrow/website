@@ -29,7 +29,7 @@ export default function Home() {
                   <WatArrow height="100%" />
                 </div>
                 <p>
-                  Aircrafts designed and built by student engineers at the
+                  Aircraft designed and built by student engineers at the
                   University of Waterloo.
                 </p>
                 <button className="button-container">
