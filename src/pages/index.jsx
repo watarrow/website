@@ -33,7 +33,7 @@ export default function Home() {
                   University of Waterloo.
                 </p>
                 <button className="button-container">
-                  <Link href="/contact">Learn more</Link>
+                  <Link href="/team">Learn more</Link>
                 </button>
               </FadeIn>
 
