@@ -179,8 +179,7 @@ const Team = ({ content }) => {
                 width={640}
                 height={800}
                 src={`${DIRECTUS_CDN_URL}/assets/${content.about_image}`}
-                alt=""
-                key={content.about_image}
+                alt="WatArrow origin members in front of a bay"
               />
             </FadeIn>
           </div>
@@ -192,8 +191,7 @@ const Team = ({ content }) => {
             height={6336}
             style={{ objectFit: "cover", height: "100vh", width: "100%" }}
             src={`${DIRECTUS_CDN_URL}/assets/${content.comp_image}`}
-            alt=""
-            key={content.comp_image}
+            alt="WatArrow members watch their aircraft fly at competition"
           />
           <div className="text">
             <h2>SAE AERO DESIGN 2025</h2>
@@ -283,8 +281,7 @@ const Team = ({ content }) => {
               width: "100%",
             }}
             src={`${DIRECTUS_CDN_URL}/assets/${content.members_image}`}
-            alt=""
-            key={content.members_image}
+            alt="WatArrow members staying cool with their hockey jerseys in the sun"
           />
           <div className="text">
             <h2>JOIN US</h2>
