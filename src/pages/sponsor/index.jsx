@@ -46,7 +46,7 @@ const Sponsor = ({ sponsors }) => {
             </p>
             <button className="button-container">
               <Link
-                href={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe.pdf`}
+                href={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}
                 target="_blank"
               >
                 SPONSOR PACKAGE
