@@ -60,7 +60,7 @@ const Team = ({ content }) => {
             height={6047}
             sizes="100vw"
             src={`${DIRECTUS_CDN_URL}/assets/${content.main_image}`}
-            alt="WatArrow SAE Aero Design East 2025 team photo"
+            alt="WatArrow SAE Aero Design East 2026 team photo"
             className="main-image main-image-desktop"
             draggable={false}
             priority={!isMobile}
@@ -70,7 +70,7 @@ const Team = ({ content }) => {
             height={6047}
             sizes="100vw"
             src={`${DIRECTUS_CDN_URL}/assets/${content.main_image_mobile}`}
-            alt="WatArrow SAE Aero Design East 2025 team photo"
+            alt="WatArrow SAE Aero Design East 2026 team photo"
             className="main-image main-image-mobile"
             draggable={false}
             priority={isMobile}
@@ -82,15 +82,17 @@ const Team = ({ content }) => {
               of Waterloo
             </p>
             {isMobile ? (
-              <sub>Joshua Perry</sub>
+              <sub>Veronika Markovich, Lesley Lang, Riya Vaidya</sub>
             ) : (
               <>
                 <sub style={{ display: "block" }}>
-                  Lesley Lang, Nicholas Iafrate, Henry Xi, Donald Alexander,
-                  Veronika Markovich
+                  Sophia Yang, Sayan Saha, Lesley Lang, Virika Vadgama, Henry
+                  Xi, Emma Keeping, Joshua Perry, Daniel Moorthy, Victor Radu,
+                  Yang Li, Prahaas Kotni
                 </sub>
                 <sub style={{ display: "block" }}>
-                  Derek Chu, Sayan Saha, Joshua Perry, Riya Vaidya, Arman Eklasi
+                  Veronika Markovich, Daria Tsybukova, Riya Vaidya, Samuel Ke,
+                  Matthew Zhang
                 </sub>
               </>
             )}
@@ -196,17 +198,18 @@ const Team = ({ content }) => {
               width: "100%",
             }}
             src={`${DIRECTUS_CDN_URL}/assets/${content.comp_image}`}
-            alt="WatArrow members watch their aircraft fly at competition"
+            alt="WatArrow members prepare to fly at competition"
           />
           <div className="text">
-            <h2>SAE AERO DESIGN 2025</h2>
-            <p className="location">Fort Worth, Texas, USA</p>
-            <p className="info">Micro Class - 3rd Place Mission</p>
-            <p className="info">Micro Class - 5th Place Overall</p>
+            <h2>SAE AERO DESIGN 2026</h2>
+            <p className="location">Lakeland, Florida, USA</p>
+            <p className="info">Advanced Class - 12th Place</p>
+            <p className="info">Micro Class - 7th Place</p>
           </div>
           <div className="bottom">
             <sub>
-              Donald Alexander, Veronika Markovich, Henry Xi, Nicholas Iafrate
+              Prahaas Kotni, Daria Tsybukova, Virika Vadgama, Veronika
+              Markovich, Victor Radu
             </sub>
           </div>
           <ScrollArrow />
@@ -224,41 +227,57 @@ const Team = ({ content }) => {
               <div className="section">
                 <h3>Captain</h3>
                 <p>
-                  Joshua Perry <span className="yellow">Captain</span>
+                  Sayan Saha <span className="yellow">Captain</span>
                 </p>
               </div>
               <div className="section">
                 <h3>Directors</h3>
                 <p>
-                  Thomas Kim <span className="yellow">Business Director</span>
+                  Riya Vaidya{" "}
+                  <span className="yellow">
+                    Advanced Class Technical Director
+                  </span>
                 </p>
                 <p>
-                  Sayan Saha <span className="yellow">Technical Director</span>
+                  Veronika Markovich{" "}
+                  <span className="yellow">Micro Class Technical Director</span>
                 </p>
               </div>
               <div className="section">
                 <h3>Leads</h3>
                 <p>
-                  Lesley Lang <span className="yellow">Structures Lead</span>
+                  Ajal Mriduraj{" "}
+                  <span className="yellow">Advanced Class Structures Lead</span>
                 </p>
                 <p>
-                  Veronika Markovich{" "}
-                  <span className="yellow">Structures Lead</span>
+                  Yang Li{" "}
+                  <span className="yellow">Advanced Class Autonomy Lead</span>
                 </p>
                 <p>
-                  Sarah Gu <span className="yellow">Propulsion Lead</span>
+                  Virika Vadgama{" "}
+                  <span className="yellow">Micro Class Structures Lead</span>
                 </p>
                 <p>
-                  Riya Vaidya <span className="yellow">Aerodynamics Lead</span>
+                  Victor Radu <span className="yellow">Flight Test Lead</span>
+                </p>
+                <p>
+                  Prahaas Kotni{" "}
+                  <span className="yellow">Aerodynamics Lead</span>
+                </p>
+                <p>
+                  Matthew Zhang <span className="yellow">Wind Tunnel Lead</span>
+                </p>
+                <p>
+                  Owen Butler <span className="yellow">Business Lead</span>
                 </p>
               </div>
               <div className="section">
                 <h3>Competitions</h3>
                 <p>
-                  SAE Aero Design <span className="yellow">Micro Class</span>
+                  SAE Aero Design <span className="yellow">Advanced Class</span>
                 </p>
                 <p>
-                  SAE Aero Design <span className="yellow">Advanced Class</span>
+                  SAE Aero Design <span className="yellow">Micro Class</span>
                 </p>
               </div>
             </FadeIn>
@@ -297,12 +316,12 @@ const Team = ({ content }) => {
               environment to build lasting friendships.
             </p>
             <p>
-              Since 2023, WatArrow has grown from just 7 members to over 25
-              members. In preparation for SAE Aero Design 2026, we anticipate
+              Since 2023, WatArrow has grown from just 7 members to over 40
+              members. In preparation for SAE Aero Design 2027, we anticipate
               even more exciting work that you can participate in! Apply now!
             </p>
             <div>
-              <sub>Lesley Lang, Derek Chu, Riya Vaidya</sub>
+              <sub>Veronika Markovich, Daria Tsybukova, Virika Vadgama</sub>
             </div>
             <button className="basic-button">
               <Link href="/join">JOIN US</Link>
@@ -319,7 +338,7 @@ export const getServerSideProps = async () => {
   const content = await directus.request(
     readItems("team_page", {
       fields: ["*", "carasoul.*"],
-    })
+    }),
   );
 
   return {

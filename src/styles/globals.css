@@ -12,15 +12,7 @@
   --medium-gray: #888888;
   --darker-black: #000000;
   --pastel-black: #333333;
-}
 
-html[data-theme="light"] {
-  --font-color: var(--darker-black);
-  --light-font-color: var(--pastel-black);
-  --bg-color: var(--bright-white);
-  --light-bg-color: var(--pastel-white);
-}
-html[data-theme="dark"] {
   --font-color: var(--bright-white);
   --light-font-color: var(--pastel-white);
   --bg-color: var(--darker-black);
