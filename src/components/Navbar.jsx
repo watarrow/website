@@ -53,7 +53,7 @@ const Navbar = () => {
     if (scrollTop > window.innerHeight) {
       setShowNavbarBackground(true);
     } else if (scrollTop < window.innerHeight) {
-      setShowNavbarBackground(true);
+      setShowNavbarBackground(false);
     }
 
     if (scrollTop > lastScrollTop) {
