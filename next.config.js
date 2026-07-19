@@ -37,8 +37,6 @@ module.exports = {
 
   reactStrictMode: true,
 
-  transpilePackages: ["@emotion/styled", "@emotion/react"],
-
   images: {
     remotePatterns: [
       {
