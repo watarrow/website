@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/blog/[id]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/blog/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/join",
+      "regex": "^/join(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/join(?:/)?$"
+    },
+    {
+      "page": "/sponsor",
+      "regex": "^/sponsor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sponsor(?:/)?$"
+    },
+    {
+      "page": "/team",
+      "regex": "^/team(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/team(?:/)?$"
+    }
+  ],
+  "dataRoutes": [
+    {
+      "page": "/blog",
+      "dataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/blog\\.json$"
+    },
+    {
+      "page": "/blog/[id]",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "dataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/blog/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/blog/(?<nxtPid>[^/]+?)\\.json$"
+    },
+    {
+      "page": "/contact",
+      "dataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/contact\\.json$"
+    },
+    {
+      "page": "/join",
+      "dataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/join\\.json$"
+    },
+    {
+      "page": "/sponsor",
+      "dataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/sponsor\\.json$"
+    },
+    {
+      "page": "/team",
+      "dataRouteRegex": "^/_next/data/9EsunQ1b2WEJD9k8SJNar/team\\.json$"
+    }
+  ],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

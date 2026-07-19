@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useMediaQuery } from "@mui/material";
+import useBetterMediaQuery from "@/hooks/useBetterMediaQuery";
 
 const links = [
   {
@@ -17,7 +17,7 @@ const links = [
 ];
 
 const Footer = () => {
-  const isMobile = useMediaQuery("(max-width: 800px)");
+  const isMobile = useBetterMediaQuery("(max-width: 800px)");
   const copyrightText = `WATARROW © ${new Date().getFullYear()}`;
 
   return (

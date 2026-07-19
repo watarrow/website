@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { Fade } from "react-awesome-reveal";
+import { motion, AnimatePresence } from "motion/react";
+
+const menuItemVariants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: 0.075 + i * 0.0875 },
+  }),
+};
 
 const MenuButton = ({
   links,
@@ -23,20 +32,22 @@ const MenuButton = ({
           <span></span>
         </div>
       </div>
-      <div className="menu" data-menu-open={menuOpen}>
+      <div
+        className="menu"
+        data-menu-open={menuOpen}
+        onAnimationEnd={() => setShowBackground(menuOpen)}
+      >
         <ul className="menu-links-list">
-          <Fade
-            cascade
-            damping={0.175}
-            delay={75}
-            duration={500}
-            onVisibilityChange={() => setShowBackground(menuOpen)}
-          >
+          <AnimatePresence>
             {links.map((link, i) => (
-              <li
+              <motion.li
                 className="menu-links-list-item"
-                id={link.special && "special"}
+                id={link.special ? "special" : undefined}
                 key={i}
+                custom={i}
+                initial="hidden"
+                animate={menuOpen ? "visible" : "hidden"}
+                variants={menuItemVariants}
                 onClick={() => {
                   setMenuOpen(false);
                 }}
@@ -44,9 +55,9 @@ const MenuButton = ({
                 <Link className="menu-link" href={link.href}>
                   {link.name}
                 </Link>
-              </li>
+              </motion.li>
             ))}
-          </Fade>
+          </AnimatePresence>
         </ul>
       </div>
       <div
