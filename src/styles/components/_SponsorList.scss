@@ -27,9 +27,6 @@
       margin-top: 1rem;
 
       .sponsor-button {
-        height: 90px;
-        width: 180px;
-        padding: 15px 35px;
         background-color: white;
 
         .image-container {
@@ -49,6 +46,28 @@
           }
         }
       }
+
+      // Tier-based logo sizes (largest → smallest)
+      &.tier-1 .sponsor-button {
+        height: 110px;
+        width: 220px;
+        padding: 15px 35px;
+      }
+      &.tier-2 .sponsor-button {
+        height: 95px;
+        width: 190px;
+        padding: 15px 30px;
+      }
+      &.tier-3 .sponsor-button {
+        height: 80px;
+        width: 160px;
+        padding: 12px 25px;
+      }
+      &.tier-4 .sponsor-button {
+        height: 70px;
+        width: 140px;
+        padding: 10px 20px;
+      }
     }
   }
 }
@@ -57,10 +76,25 @@
   .sponsor-list-root {
     .tier-container {
       .tier-sponsors {
-        .sponsor-button {
+        &.tier-1 .sponsor-button {
+          height: 95px;
+          width: 190px;
+          padding: 15px 30px;
+        }
+        &.tier-2 .sponsor-button {
           height: 80px;
           width: 160px;
-          padding: 15px 25px;
+          padding: 12px 25px;
+        }
+        &.tier-3 .sponsor-button {
+          height: 70px;
+          width: 140px;
+          padding: 10px 20px;
+        }
+        &.tier-4 .sponsor-button {
+          height: 60px;
+          width: 120px;
+          padding: 8px 15px;
         }
       }
     }
