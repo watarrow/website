@@ -11,7 +11,7 @@ import "@/styles/globals.scss";
 export default function App({ Component, pageProps }) {
   // allowed routes
   const router = useRouter();
-  const routes = ["/", "/team", "/sponsor", "/blog", "/contact", "/join"];
+  const routes = ["/", "/planes", "/sponsor", "/blog", "/contact", "/join"];
 
   if (!routes.find((route) => router.pathname.startsWith(route)).length)
     return (

@@ -10,7 +10,8 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Navbar />
       <div className="container">{children}</div>
-      {router.pathname === "/" || <Footer />}
+      {/* /planes renders its own inline footer */}
+      {router.pathname === "/planes" || <Footer />}
     </div>
   );
 };

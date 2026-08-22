@@ -37,6 +37,17 @@ module.exports = {
 
   reactStrictMode: true,
 
+  async redirects() {
+    return [
+      // The team page is now the home page.
+      {
+        source: "/team",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
+
   images: {
     remotePatterns: [
       {

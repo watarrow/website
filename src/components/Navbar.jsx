@@ -10,8 +10,8 @@ const links = [
     href: "/",
   },
   {
-    name: "Team",
-    href: "/team",
+    name: "Planes",
+    href: "/planes",
   },
   {
     name: "Blog",
