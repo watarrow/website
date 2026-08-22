@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
-import { Analytics } from "@vercel/analytics/react";
 
 import Layout from "@/components/Layout";
 
@@ -18,7 +17,6 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider>
         {/* <NextNProgress {...nextNProgressProps} /> */}
         <Component {...pageProps} />
-        <Analytics />
       </ThemeProvider>
     );
 
@@ -27,7 +25,6 @@ export default function App({ Component, pageProps }) {
       <Layout>
         {/* <NextNProgress {...nextNProgressProps} /> */}
         <Component {...pageProps} />
-        <Analytics />
       </Layout>
     </ThemeProvider>
   );
