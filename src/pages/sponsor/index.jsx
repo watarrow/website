@@ -37,22 +37,42 @@ const Sponsor = ({ sponsors }) => {
             </div>
           </div>
 
-          <div className="section">
+          <div className="sponsor-package-section">
             <h2>SPONSOR PACKAGE</h2>
-            <p>
-              Are you interested in sponsoring us? Take a look at our sponsor
-              package for more information about WatArrow, how your funding
-              supports us, and our sponsorship tiers.
-            </p>
-            <button className="button-container">
+            <div className="sponsor-package-card">
               <Link
                 href={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}
                 target="_blank"
+                className="package-preview"
               >
-                SPONSOR PACKAGE
+                <iframe
+                  style={{ width: '100%', minHeight: '750px' }}
+                  src={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}
+                  title="Sponsor Package Preview"
+                  tabIndex={-1}
+                />
+                <div className="preview-overlay">
+                  <span>VIEW FULL DOCUMENT</span>
+                </div>
               </Link>
-            </button>
+              <div className="package-info">
+                <p>
+                  Are you interested in sponsoring us? Our sponsor package has
+                  everything you need to know — learn about WatArrow, see how
+                  your funding supports us, and explore our sponsorship tiers.
+                </p>
+                <button className="button-container">
+                  <Link
+                    href={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}
+                    target="_blank"
+                  >
+                    VIEW SPONSOR PACKAGE
+                  </Link>
+                </button>
+              </div>
+            </div>
           </div>
+
 
           <div className="section">
             <h2>OUR SPONSORS</h2>
