@@ -1,0 +1,242 @@
+.aircraft-list-root {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  // Clears the fixed 100px navbar.
+  padding: calc(100px + 3rem) 25px 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  color: var(--font-color);
+
+  .aircraft-list-title {
+    font-size: 3rem;
+    color: var(--accent-color);
+    user-select: none;
+  }
+}
+
+.aircraft-row {
+  display: grid;
+  // Description 35%, model 65%.
+  grid-template-columns: minmax(0, 35fr) minmax(0, 65fr);
+  gap: 4rem;
+  align-items: center;
+  scroll-margin-top: 120px;
+
+  // Even rows keep the model on the right, odd rows flip it to the left. The
+  // track widths swap with it, so the model keeps 65% on whichever side it lands.
+  &.flip {
+    grid-template-columns: minmax(0, 65fr) minmax(0, 35fr);
+
+    .aircraft-info {
+      order: 2;
+    }
+
+    .aircraft-model {
+      order: 1;
+    }
+  }
+
+  .aircraft-info {
+    min-width: 0;
+  }
+
+  .aircraft-name {
+    font-size: 3rem;
+    color: #fed11c;
+    line-height: 1.1;
+  }
+
+  .aircraft-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+      font-size: 0.75rem;
+      line-height: 1.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04rem;
+      padding: 0 0.75rem;
+      border: 1px solid var(--medium-gray);
+      user-select: none;
+    }
+  }
+
+  .aircraft-description {
+    margin-top: 2rem;
+
+    // The shared markdown styles zero a heading's bottom margin but give the
+    // next block a 1.6em top margin, so every heading floats away from its own
+    // text. Pull whatever follows a heading back up under it.
+    h1 + *,
+    h2 + *,
+    h3 + *,
+    h4 + *,
+    h5 + *,
+    h6 + * {
+      margin-top: 0.5em;
+    }
+  }
+
+  .aircraft-table-wrapper {
+    width: 100%;
+    margin: 1.2em 0;
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      // Tighter than the 15px/24px the shared markdown styles apply to tables.
+      font-size: 0.875rem;
+      line-height: 1.35;
+    }
+
+    // The spec table should read as a spec sheet, not a document table.
+    th,
+    td {
+      padding: 0.3rem 0;
+      border: none;
+      border-bottom: 1px solid #333;
+      text-align: left;
+    }
+
+    th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04rem;
+      color: var(--medium-gray);
+    }
+
+    td:last-child {
+      text-align: right;
+      color: var(--accent-color);
+    }
+  }
+
+  .aircraft-contributors {
+    margin-top: 2rem;
+
+    h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04rem;
+      color: var(--medium-gray);
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  .aircraft-model {
+    position: relative;
+    width: 100%;
+    height: min(70vh, 620px);
+  }
+}
+
+.aircraft-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+
+  // Mounted only when it's needed, so it fades in rather than out.
+  .aircraft-viewer-image {
+    object-fit: contain;
+    user-select: none;
+    animation: aircraftImageIn 0.4s ease;
+  }
+
+  // Only the canvas is draggable — an image-only slot keeps the normal cursor.
+  .aircraft-viewer-canvas {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: grab;
+    transition: opacity 0.75s ease;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &.ready .aircraft-viewer-canvas {
+    opacity: 1;
+  }
+}
+
+@keyframes aircraftImageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.no-aircrafts-container {
+  height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-color);
+
+  .no-aircrafts {
+    line-height: 1.25rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .aircraft-row {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .aircraft-list-root {
+    // The mobile navbar is 4rem tall.
+    padding: calc(4rem + 2rem) 1.5rem 4rem;
+    gap: 4.5rem;
+
+    .aircraft-list-title {
+      font-size: 2rem;
+    }
+  }
+
+  // `.aircraft-row.flip` must be named explicitly: a media query adds no
+  // specificity, so a lone `.aircraft-row` loses to the two-class flip rule and
+  // its 65/35 template would survive down here.
+  .aircraft-row,
+  .aircraft-row.flip {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+
+    // Text always leads on mobile, whichever side the model takes on desktop.
+    .aircraft-info {
+      order: 1;
+    }
+
+    .aircraft-model {
+      order: 2;
+      height: 45vh;
+    }
+
+    .aircraft-name {
+      font-size: 2rem;
+    }
+  }
+
+  .no-aircrafts-container .no-aircrafts {
+    margin: 0 1.5rem;
+  }
+}

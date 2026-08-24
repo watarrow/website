@@ -270,6 +270,9 @@ const Team = ({ content }) => {
                 <p>
                   Owen Butler <span className="yellow">Business Lead</span>
                 </p>
+                <p>
+                  Bader Aljabri <span className="yellow">Software & Infrastructure Lead</span>
+                </p>
               </div>
               <div className="section">
                 <h3>Competitions</h3>

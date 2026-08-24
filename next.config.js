@@ -39,10 +39,16 @@ module.exports = {
 
   async redirects() {
     return [
-      // The team page is now the home page.
+      // The old /team page is now the home page
       {
         source: "/team",
         destination: "/",
+        permanent: true,
+      },
+
+      {
+        source: "/planes",
+        destination: "/aircrafts",
         permanent: true,
       },
     ];
