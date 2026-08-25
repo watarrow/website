@@ -38,6 +38,6 @@ export const normalizeAircraft = (item) => ({
     item.Contributors ?? item.Contributers ?? item.contributors
   ),
   model: item.Model ?? item.model ?? null,
-  poster: item.Poster ?? item.poster ?? null,
+  image: item.Image ?? item.image ?? null,
   yaw: Number(item.Model_yaw ?? item.model_yaw ?? 0),
 });
