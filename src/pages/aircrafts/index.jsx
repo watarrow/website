@@ -11,7 +11,7 @@ export default function Aircrafts({ aircrafts }) {
   return (
     <>
       <Head>
-        <title>WatArrow | Aircrafts</title>
+        <title>WatArrow | Aircraft</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>

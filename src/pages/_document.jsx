@@ -26,7 +26,7 @@ export default function Document() {
         {/* ===== DESCRIPTION ===== */}
         <meta
           name="description"
-          content="Aircrafts designed and built by student engineers at the University of Waterloo."
+          content="Aircraft designed and built by student engineers at the University of Waterloo."
         />
         {/* ===== FONT ===== */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
