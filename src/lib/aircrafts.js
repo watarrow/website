@@ -27,6 +27,17 @@ const cleanContributors = (list) => {
     });
 };
 
+
+export const fileIds = (list) => {
+  if (!Array.isArray(list)) return [];
+
+  return list
+    .map((entry) =>
+      typeof entry === "string" ? entry : entry?.directus_files_id
+    )
+    .filter((id) => typeof id === "string" && id.length > 0);
+};
+
 // case insensetivity
 export const normalizeAircraft = (item) => ({
   id: item.id,
@@ -39,5 +50,6 @@ export const normalizeAircraft = (item) => ({
   ),
   model: item.Model ?? item.model ?? null,
   image: item.Image ?? item.image ?? null,
+  gallery: fileIds(item.Gallery ?? item.gallery),
   yaw: Number(item.Model_yaw ?? item.model_yaw ?? 0),
 });

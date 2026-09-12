@@ -140,6 +140,16 @@
     width: 100%;
     height: min(70vh, 620px);
   }
+
+  // Spans both tracks so the strip runs the full width of the row, under
+  // whichever side the model landed on. The explicit order matters: `.flip`
+  // gives the other two children an order, and without one of its own the
+  // gallery would sort ahead of them on flipped rows.
+  .aircraft-gallery {
+    grid-column: 1 / -1;
+    order: 3;
+    margin-top: 1rem;
+  }
 }
 
 .aircraft-viewer {

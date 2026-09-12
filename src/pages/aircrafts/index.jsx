@@ -24,12 +24,11 @@ export default function Aircrafts({ aircrafts }) {
 export const getServerSideProps = async () => {
   const aircrafts = await directus.request(
     readItems("Aircrafts", {
-      fields: ["*"],
+      fields: ["*", "Gallery.directus_files_id"],
       sort: ["sort"], // Drag-and-drop order set in Directus; new entries sort last
       ...(isProd() && {
         filter: {
           status: {
-
             _in: ["published", "PUBLISHED"],
           },
         },

@@ -1,0 +1,102 @@
+.image-carousel {
+  position: relative;
+}
+
+.image-carousel-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // Position is handed in from the page, so the strip itself must not scroll.
+  &.scroll-linked {
+    position: relative;
+  }
+
+  // Set by the component only once it has measured the strip as narrower than
+  // its track, so centring can never strand overflow out of reach the way a
+  // standing `justify-content: center` does on a scrolling flex row.
+  &.centered {
+    justify-content: center;
+  }
+
+  &:not(.scroll-linked) {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+
+    // The arrows are the affordance here; a scrollbar under the strip only
+    // adds a second one that shifts the layout.
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.image-carousel-slide {
+  // Slides hold their box exactly: flex would otherwise shrink them to fit and
+  // the row of images would stop lining up.
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.image-carousel-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  // Every slide keeps the same height whatever the source image's ratio is.
+  object-fit: cover;
+  user-select: none;
+}
+
+.image-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--font-color);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--medium-gray);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  // Kept in the layout rather than removed, so the strip doesn't shift when an
+  // end is reached.
+  &:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.prev {
+    left: 0.75rem;
+  }
+
+  &.next {
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 800px) {
+  // Touch already swipes the strip, and the arrows would cover a third of it.
+  .image-carousel-arrow {
+    display: none;
+  }
+}

@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  motion,
   useScroll,
   useMotionValueEvent,
   useInView,
@@ -12,6 +11,7 @@ import {
 import { readItems } from "@directus/sdk";
 import FadeIn from "react-fade-in";
 
+import ImageCarousel from "@/components/ImageCarousel";
 import ScrollArrow from "@/components/ScrollArrow";
 
 import useBetterMediaQuery from "@/hooks/useBetterMediaQuery";
@@ -111,29 +111,14 @@ const Team = ({ content }) => {
             <div style={{ width: WIDTH }}>
               <WeAreWatArrow />
             </div>
-            <motion.div
+            <ImageCarousel
               className="carasoul"
-              animate
-              style={{
-                width: WIDTH,
-                transform: `translateX(-${
-                  carasoulProgress *
-                  ((content.carasoul.length - 1) * (WIDTH + GAP))
-                }px)`,
-                gap: GAP,
-              }}
-            >
-              {content.carasoul.map((image, i) => (
-                <Image
-                  width={600}
-                  height={900}
-                  style={{ objectFit: "cover", maxHeight: HEIGHT }}
-                  src={`${DIRECTUS_CDN_URL}/assets/${image.directus_files_id}`}
-                  alt=""
-                  key={image.directus_files_id}
-                />
-              ))}
-            </motion.div>
+              images={content.carasoul}
+              width={WIDTH}
+              height={HEIGHT}
+              gap={GAP}
+              progress={carasoulProgress}
+            />
             <ScrollArrow />
           </div>
         </div>
@@ -147,24 +132,21 @@ const Team = ({ content }) => {
               transitionDuration={750}
             >
               <h2 className="title">ABOUT US</h2>
+
               <p>
                 Founded in 2023, WatArrow started as a student design team at
-                the University of Waterloo designing aircraft with a focus on
-                aerodynamics.
+                the University of Waterloo designing custom fixed-wing aircraft.
               </p>
               <p>
-                At WatArrow, we are committed to empowering students with
+                We are committed to empowering students with
                 invaluable real-world experience in aerospace engineering.
-              </p>
-              <p>
                 Our mission is to provide a community where students can
                 collaborate in the complete lifecycle of aircraft design—from
                 conceptualization and manufacturing to flight testing.
               </p>
               <p>
-                Since 2023, we have competed in SAE Aero Design East twice, both
-                in the micro class. For SAE Aero Design 2026, WatArrow will be
-                competing in both the micro class and the advanced class.
+                Since 2023, we have competed in SAE Aero Design East three times. For SAE Aero Design 2027, WatArrow will be
+                competing in the Advanced Class.
               </p>
               <sub>
                 Emma Keeping, Anastasia Kimovska, Arman Eklasi, Joshua Perry,
@@ -225,47 +207,30 @@ const Team = ({ content }) => {
             >
               <h2>TEAM STRUCTURE</h2>
               <div className="section">
-                <h3>Captain</h3>
+                <h3>Captains</h3>
                 <p>
-                  Sayan Saha <span className="yellow">Captain</span>
-                </p>
-              </div>
-              <div className="section">
-                <h3>Directors</h3>
-                <p>
-                  Riya Vaidya{" "}
-                  <span className="yellow">
-                    Advanced Class Technical Director
-                  </span>
+                  Sayan Saha <span className="yellow">Co-Captain</span>
                 </p>
                 <p>
-                  Veronika Markovich{" "}
-                  <span className="yellow">Micro Class Technical Director</span>
+                  Riya Vaidya <span className="yellow">Co-Captain</span>
                 </p>
               </div>
               <div className="section">
                 <h3>Leads</h3>
                 <p>
-                  Ajal Mriduraj{" "}
-                  <span className="yellow">Advanced Class Structures Lead</span>
-                </p>
-                <p>
                   Yang Li{" "}
-                  <span className="yellow">Advanced Class Autonomy Lead</span>
+                  <span className="yellow">Autonomy & Avionics Lead</span>
                 </p>
                 <p>
                   Virika Vadgama{" "}
-                  <span className="yellow">Micro Class Structures Lead</span>
+                  <span className="yellow">Structures Co-Lead</span>
+                </p>
+                <p>
+                  Lesley Lang{" "}
+                  <span className="yellow">Structures Co-Lead</span>
                 </p>
                 <p>
                   Victor Radu <span className="yellow">Flight Test Lead</span>
-                </p>
-                <p>
-                  Prahaas Kotni{" "}
-                  <span className="yellow">Aerodynamics Lead</span>
-                </p>
-                <p>
-                  Matthew Zhang <span className="yellow">Wind Tunnel Lead</span>
                 </p>
                 <p>
                   Owen Butler <span className="yellow">Business Lead</span>
@@ -273,14 +238,18 @@ const Team = ({ content }) => {
                 <p>
                   Bader Aljabri <span className="yellow">Software & Infrastructure Lead</span>
                 </p>
+                <p>
+                  Prahaas Kotni{" "}
+                  <span className="yellow">Aerodynamics & Analysis Lead</span>
+                </p>
+                <p>
+                  Matthew Zhang <span className="yellow">Wind Tunnel Lead</span>
+                </p>
               </div>
               <div className="section">
                 <h3>Competitions</h3>
                 <p>
-                  SAE Aero Design <span className="yellow">Advanced Class</span>
-                </p>
-                <p>
-                  SAE Aero Design <span className="yellow">Micro Class</span>
+                  SAE Aero Design 2027 <span className="yellow">Advanced Class</span>
                 </p>
               </div>
             </FadeIn>
