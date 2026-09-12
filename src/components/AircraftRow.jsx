@@ -6,7 +6,7 @@ import ImageCarousel from "./ImageCarousel";
 
 import useBetterMediaQuery from "@/hooks/useBetterMediaQuery";
 import useInView from "@/hooks/useInView";
-import { assetUrl, aircraftSlug } from "@/lib/aircrafts";
+import { assetUrl, aircraftSlug } from "@/lib/aircraft";
 
 const AircraftViewer = dynamic(() => import("./AircraftViewer"), { ssr: false });
 

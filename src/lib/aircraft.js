@@ -3,7 +3,7 @@ const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
 export const assetUrl = (id) =>
   id ? `${DIRECTUS_CDN_URL}/assets/${id}` : null;
 
-// Used for the per-aircraft anchor, e.g. /aircrafts#dart
+// Used for the per-aircraft anchor, e.g. /aircraft#dart
 export const aircraftSlug = (name) =>
   String(name || "")
     .toLowerCase()
@@ -11,13 +11,18 @@ export const aircraftSlug = (name) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
-
 const cleanContributors = (list) => {
-  if (!Array.isArray(list)) return [];
+  const raw = Array.isArray(list)
+    ? list
+    : typeof list === "string"
+    ? list.split(",")
+    : [];
+
+  if (!raw.length) return [];
 
   const seen = new Set();
 
-  return list
+  return raw
     .map((name) => String(name).trim())
     .filter((name) => {
       const key = name.toLowerCase();
@@ -26,7 +31,6 @@ const cleanContributors = (list) => {
       return true;
     });
 };
-
 
 export const fileIds = (list) => {
   if (!Array.isArray(list)) return [];
@@ -38,7 +42,7 @@ export const fileIds = (list) => {
     .filter((id) => typeof id === "string" && id.length > 0);
 };
 
-// case insensetivity
+// case insensitivity
 export const normalizeAircraft = (item) => ({
   id: item.id,
   name: item.Name ?? item.name ?? "",

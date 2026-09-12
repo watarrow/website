@@ -57,25 +57,52 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 2;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  appearance: none;
+  -webkit-appearance: none;
 
-  font-size: 1.75rem;
-  line-height: 1;
   color: var(--font-color);
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid var(--medium-gray);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   cursor: pointer;
-  transition: opacity 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+
+  transition-property: background-color, border-color, color, transform, box-shadow, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.94);
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 
   // Kept in the layout rather than removed, so the strip doesn't shift when an
@@ -83,6 +110,8 @@
   &:disabled {
     opacity: 0;
     pointer-events: none;
+    cursor: default;
+    transform: translateY(-50%) scale(0.9);
   }
 
   &.prev {
@@ -91,6 +120,25 @@
 
   &.next {
     right: 0.75rem;
+  }
+
+  .image-carousel-arrow-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-carousel-arrow {
+    transition: none;
+
+    &:hover,
+    &:active {
+      transform: translateY(-50%);
+    }
   }
 }
 

@@ -11,7 +11,7 @@ const links = [
   },
   {
     name: "Aircraft",
-    href: "/aircrafts",
+    href: "/aircraft",
   },
   {
     name: "Blog",

@@ -43,8 +43,9 @@ const Team = ({ content }) => {
 
   const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
   const SCALE = 0.67;
-  const WIDTH = isMobile ? 300 : (windowSize.height * SCALE * 2) / 3;
-  const HEIGHT = isMobile ? 450 : windowSize.height * SCALE;
+  const effectiveHeight = windowSize.height || 800;
+  const WIDTH = isMobile ? 300 : (effectiveHeight * SCALE * 2) / 3;
+  const HEIGHT = isMobile ? 450 : effectiveHeight * SCALE;
   const GAP = isMobile ? 25 : 50;
 
   return (
@@ -104,7 +105,7 @@ const Team = ({ content }) => {
           className="card-intro"
           ref={introRef}
           style={{
-            height: `calc(${content.carasoul.length}00vh * 0.67)`,
+            height: `calc(${(content?.carasoul?.length || 1) * 100}vh * 0.67)`,
           }}
         >
           <div className="center">
@@ -295,9 +296,9 @@ const Team = ({ content }) => {
             <div>
               <sub>Veronika Markovich, Daria Tsybukova, Virika Vadgama</sub>
             </div>
-            <button className="basic-button">
+            <div className="basic-button">
               <Link href="/join">JOIN US</Link>
-            </button>
+            </div>
           </div>
         </div>
       </main>
@@ -307,15 +308,24 @@ const Team = ({ content }) => {
 export default Team;
 
 export const getServerSideProps = async () => {
-  const content = await directus.request(
-    readItems("team_page", {
-      fields: ["*", "carasoul.*"],
-    }),
-  );
+  try {
+    const content = await directus.request(
+      readItems("team_page", {
+        fields: ["*", "carasoul.*"],
+      }),
+    );
 
-  return {
-    props: {
-      content,
-    },
-  };
+    return {
+      props: {
+        content: content || {},
+      },
+    };
+  } catch (error) {
+    console.error("Failed to fetch team_page content from Directus:", error);
+    return {
+      props: {
+        content: { carasoul: [] },
+      },
+    };
+  }
 };

@@ -193,6 +193,7 @@
   }
 }
 
+.no-aircraft-container,
 .no-aircrafts-container {
   height: calc(100vh - 100px);
   width: 100%;
@@ -201,6 +202,7 @@
   justify-content: center;
   color: var(--font-color);
 
+  .no-aircraft,
   .no-aircrafts {
     line-height: 1.25rem;
   }
@@ -246,6 +248,7 @@
     }
   }
 
+  .no-aircraft-container .no-aircraft,
   .no-aircrafts-container .no-aircrafts {
     margin: 0 1.5rem;
   }

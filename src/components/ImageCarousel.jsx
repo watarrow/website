@@ -1,14 +1,42 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-import { assetUrl, fileIds } from "@/lib/aircrafts";
+import { assetUrl, fileIds } from "@/lib/aircraft";
 
 const LOOP_COPIES = 3;
 const SETTLE_MS = 140; // How long the strip must be still before it re-centres.
 
 const EPSILON = 1;
 
+const ChevronLeft = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="image-carousel-arrow-icon"
+    aria-hidden="true"
+  >
+    <polyline points="15 18 9 12 15 6" />
+  </svg>
+);
 
+const ChevronRight = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="image-carousel-arrow-icon"
+    aria-hidden="true"
+  >
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
 
 const ImageCarousel = ({
   images,
@@ -194,7 +222,7 @@ const ImageCarousel = ({
             disabled={!looping && atStart}
             aria-label="Previous image"
           >
-            ‹
+            <ChevronLeft />
           </button>
           <button
             type="button"
@@ -203,7 +231,7 @@ const ImageCarousel = ({
             disabled={!looping && atEnd}
             aria-label="Next image"
           >
-            ›
+            <ChevronRight />
           </button>
         </>
       )}

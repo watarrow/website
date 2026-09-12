@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const DIRECTUS_CDN_HOSTNAME = process.env.NEXT_PUBLIC_DIRECTUS_CDN_HOSTNAME;
+const DIRECTUS_CDN_HOSTNAME =
+  process.env.NEXT_PUBLIC_DIRECTUS_CDN_HOSTNAME || "app.watarrow.com";
 
 module.exports = {
   webpack(config) {
@@ -48,7 +49,13 @@ module.exports = {
 
       {
         source: "/planes",
-        destination: "/aircrafts",
+        destination: "/aircraft",
+        permanent: true,
+      },
+
+      {
+        source: "/aircrafts",
+        destination: "/aircraft",
         permanent: true,
       },
     ];

@@ -10,7 +10,7 @@ const MIN_ZOOM = 0.55;
 const MAX_ZOOM = 2.5;
 
 // How long a model gets to load before the image takes over.
-const MODEL_TIMEOUT_MS = 3000;
+const MODEL_TIMEOUT_MS = 5000;
 
 // z-axis up intead of y
 const UP = new Vector3(0, 0, 1);
