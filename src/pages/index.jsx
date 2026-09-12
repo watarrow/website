@@ -1,18 +1,52 @@
+import { useRef, useState } from "react";
+
 import Head from "next/head";
-import { useState } from "react";
-import { StlViewer } from "react-stl-viewer";
-import FadeIn from "react-fade-in";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  useScroll,
+  useMotionValueEvent,
+  useInView,
+} from "motion/react";
+import { readItems } from "@directus/sdk";
+import FadeIn from "react-fade-in";
+
+import ImageCarousel from "@/components/ImageCarousel";
+import ScrollArrow from "@/components/ScrollArrow";
+
 import useBetterMediaQuery from "@/hooks/useBetterMediaQuery";
+import useWindowSize from "@/hooks/useWindowSize";
 
 import WatArrow from "@/assets/watarrow-word-logo.svg";
+import Arrow from "@/assets/logo-transparent-svg.svg";
+import WeAreWatArrow from "@/assets/we-are-watarrow.svg";
 
-export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
+import directus from "@/lib/directus";
+
+const Team = ({ content }) => {
+  const introRef = useRef();
+  const structureRef = useRef();
+  const aboutRef = useRef();
+  const { scrollYProgress } = useScroll({
+    target: introRef,
+    offset: ["start -15%", "end 115%"],
+  });
+  const [carasoulProgress, setCarasoulProgress] = useState(0);
+  const windowSize = useWindowSize();
   const isMobile = useBetterMediaQuery("(max-width: 800px)");
+  const isStructureInView = useInView(structureRef, { once: true });
+  const isAboutInView = useInView(aboutRef, { once: true });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setCarasoulProgress(latest);
+  });
 
   const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
-  const modelUrl = `${DIRECTUS_CDN_URL}/assets/a837af33-97b7-4965-8888-06a78cfcec81.stl`;
+  const SCALE = 0.67;
+  const effectiveHeight = windowSize.height || 800;
+  const WIDTH = isMobile ? 300 : (effectiveHeight * SCALE * 2) / 3;
+  const HEIGHT = isMobile ? 450 : effectiveHeight * SCALE;
+  const GAP = isMobile ? 25 : 50;
 
   return (
     <>
@@ -20,80 +54,278 @@ export default function Home() {
         <title>WatArrow</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="home">
-        <div className="home-page-root">
-          <div className="home-page-container">
-            <div className="left">
-              <FadeIn delay={150} transitionDuration={750} className="title">
-                <div className="logo-container">
-                  <WatArrow height="100%" />
-                </div>
-                <p>
-                  Aircraft designed and built by student engineers at the
-                  University of Waterloo.
-                </p>
-                <button className="button-container">
-                  <Link href="/team">Learn more</Link>
-                </button>
-              </FadeIn>
-
-              <div className="statistics">
-                <h2>DART</h2>
-                <p>
-                  DART is the second competition aircraft designed by WatArrow.
-                  Built and tested in the course of over 8 months, the team
-                  placed 3rd in the mission component and 5th overall at SAE
-                  Aero Design East 2025.
-                </p>
-                <ul>
-                  <li>1.3 kg dry mass</li>
-                  <li>{"<"}5 ft takeoff distance</li>
-                  <li>Molduar design for quick repairs</li>
-                  <li>70 oz payload tank</li>
-                </ul>
-
-                <h3>CONTRIBUTORS</h3>
-                <p>
-                  Joshua Perry, Nicholas Iafrate, Thomas Kim, Henry Xi, Arman
-                  Eklasi, Sayan Saha, Veronika Markovich, Lesley Lang, Riya
-                  Vaidya, Derek Chu, Donald Alexander, Lucas Lu, Jerry Yan,
-                  Kevin Gong, Sarah Gu
-                </p>
-              </div>
-            </div>
-
-            <div className="right">
-              <div className={`cover ${isLoaded ? "loaded" : ""}`}></div>
-              <div className="stl-viewer-container">
-                <FadeIn
-                  delay={750}
-                  style={{ height: "100%", width: "100%" }}
-                  transitionDuration={750}
-                >
-                  <StlViewer
-                    url={modelUrl}
-                    modelProps={{
-                      color: "#805500",
-                      scale: isMobile ? 0.65 : 1.5,
-                      positionX: 0,
-                      positionY: 0,
-                      rotationZ: Math.PI / 6,
-                    }}
-                    orbitControls
-                    className="stl-viewer"
-                    onFinishLoading={() => setIsLoaded(true)}
-                  />
-                </FadeIn>
-              </div>
-            </div>
-            <div className="spacer"></div>
+      <main className="team-root">
+        <div className="main-image-container">
+          <Image
+            width={9075}
+            height={6047}
+            sizes="100vw"
+            src={`${DIRECTUS_CDN_URL}/assets/${content.main_image}`}
+            alt="WatArrow SAE Aero Design East 2026 team photo"
+            className="main-image main-image-desktop"
+            draggable={false}
+            priority={!isMobile}
+          />
+          <Image
+            width={9075}
+            height={6047}
+            sizes="100vw"
+            src={`${DIRECTUS_CDN_URL}/assets/${content.main_image_mobile}`}
+            alt="WatArrow SAE Aero Design East 2026 team photo"
+            className="main-image main-image-mobile"
+            draggable={false}
+            priority={isMobile}
+          />
+          <div className="text">
+            <WatArrow />
+            <p>
+              Aircraft designed and built by student engineers at the University
+              of Waterloo
+            </p>
+            {isMobile ? (
+              <sub>Veronika Markovich, Lesley Lang, Riya Vaidya</sub>
+            ) : (
+              <>
+                <sub style={{ display: "block" }}>
+                  Sophia Yang, Sayan Saha, Lesley Lang, Virika Vadgama, Henry
+                  Xi, Emma Keeping, Joshua Perry, Daniel Moorthy, Victor Radu,
+                  Yang Li, Prahaas Kotni
+                </sub>
+                <sub style={{ display: "block" }}>
+                  Veronika Markovich, Daria Tsybukova, Riya Vaidya, Samuel Ke,
+                  Matthew Zhang
+                </sub>
+              </>
+            )}
           </div>
+          <ScrollArrow />
+        </div>
 
-          <FadeIn delay={1000} transitionDuration={750}>
-            <footer className="home-page-footer">{`WATARROW © ${new Date().getFullYear()}`}</footer>
-          </FadeIn>
+        <div
+          className="card-intro"
+          ref={introRef}
+          style={{
+            height: `calc(${(content?.carasoul?.length || 1) * 100}vh * 0.67)`,
+          }}
+        >
+          <div className="center">
+            <div style={{ width: WIDTH }}>
+              <WeAreWatArrow />
+            </div>
+            <ImageCarousel
+              className="carasoul"
+              images={content.carasoul}
+              width={WIDTH}
+              height={HEIGHT}
+              gap={GAP}
+              progress={carasoulProgress}
+            />
+            <ScrollArrow />
+          </div>
+        </div>
+
+        <div className="card-about">
+          <div className="center" ref={aboutRef}>
+            <FadeIn
+              className="left"
+              visible={isAboutInView}
+              delay={150}
+              transitionDuration={750}
+            >
+              <h2 className="title">ABOUT US</h2>
+
+              <p>
+                Founded in 2023, WatArrow started as a student design team at
+                the University of Waterloo designing custom fixed-wing aircraft.
+              </p>
+              <p>
+                We are committed to empowering students with
+                invaluable real-world experience in aerospace engineering.
+                Our mission is to provide a community where students can
+                collaborate in the complete lifecycle of aircraft design—from
+                conceptualization and manufacturing to flight testing.
+              </p>
+              <p>
+                Since 2023, we have competed in SAE Aero Design East three times. For SAE Aero Design 2027, WatArrow will be
+                competing in the Advanced Class.
+              </p>
+              <sub>
+                Emma Keeping, Anastasia Kimovska, Arman Eklasi, Joshua Perry,
+                Thomas Kim, Nicholas Iafrate, Henry Xi
+              </sub>
+            </FadeIn>
+            <FadeIn
+              className="right"
+              visible={isAboutInView}
+              delay={150}
+              transitionDuration={750}
+            >
+              <Image
+                width={640}
+                height={800}
+                src={`${DIRECTUS_CDN_URL}/assets/${content.about_image}`}
+                alt="WatArrow origin members in front of a bay"
+              />
+            </FadeIn>
+          </div>
+        </div>
+
+        <div className="card-comp">
+          <Image
+            width={9520}
+            height={6336}
+            style={{
+              objectFit: "cover",
+              objectPosition: "45% 50%",
+              height: "100vh",
+              width: "100%",
+            }}
+            src={`${DIRECTUS_CDN_URL}/assets/${content.comp_image}`}
+            alt="WatArrow members prepare to fly at competition"
+          />
+          <div className="text">
+            <h2>SAE AERO DESIGN 2026</h2>
+            <p className="location">Lakeland, Florida, USA</p>
+            <p className="info">Advanced Class - 12th Place</p>
+            <p className="info">Micro Class - 7th Place</p>
+          </div>
+          <div className="bottom">
+            <sub>
+              Prahaas Kotni, Daria Tsybukova, Virika Vadgama, Veronika
+              Markovich, Victor Radu
+            </sub>
+          </div>
+          <ScrollArrow />
+        </div>
+
+        <div className="card-structure">
+          <div className="center" ref={structureRef}>
+            <FadeIn
+              className="left"
+              visible={isStructureInView}
+              delay={150}
+              transitionDuration={750}
+            >
+              <h2>TEAM STRUCTURE</h2>
+              <div className="section">
+                <h3>Captains</h3>
+                <p>
+                  Sayan Saha <span className="yellow">Co-Captain</span>
+                </p>
+                <p>
+                  Riya Vaidya <span className="yellow">Co-Captain</span>
+                </p>
+              </div>
+              <div className="section">
+                <h3>Leads</h3>
+                <p>
+                  Yang Li{" "}
+                  <span className="yellow">Autonomy & Avionics Lead</span>
+                </p>
+                <p>
+                  Virika Vadgama{" "}
+                  <span className="yellow">Structures Co-Lead</span>
+                </p>
+                <p>
+                  Lesley Lang{" "}
+                  <span className="yellow">Structures Co-Lead</span>
+                </p>
+                <p>
+                  Victor Radu <span className="yellow">Flight Test Lead</span>
+                </p>
+                <p>
+                  Owen Butler <span className="yellow">Business Lead</span>
+                </p>
+                <p>
+                  Bader Aljabri <span className="yellow">Software & Infrastructure Lead</span>
+                </p>
+                <p>
+                  Prahaas Kotni{" "}
+                  <span className="yellow">Aerodynamics & Analysis Lead</span>
+                </p>
+                <p>
+                  Matthew Zhang <span className="yellow">Wind Tunnel Lead</span>
+                </p>
+              </div>
+              <div className="section">
+                <h3>Competitions</h3>
+                <p>
+                  SAE Aero Design 2027 <span className="yellow">Advanced Class</span>
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn
+              className="right"
+              visible={isStructureInView}
+              delay={150}
+              transitionDuration={750}
+            >
+              <div className="container">
+                <Arrow />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+
+        <div className="card-members">
+          <Image
+            width={9520}
+            height={6336}
+            style={{
+              opacity: 0.67,
+              objectFit: "cover",
+              objectPosition: "64% 50%",
+              height: "100vh",
+              width: "100%",
+            }}
+            src={`${DIRECTUS_CDN_URL}/assets/${content.members_image}`}
+            alt="WatArrow members staying cool with their hockey jerseys in the sun"
+          />
+          <div className="text">
+            <h2>JOIN US</h2>
+            <p>
+              WatArrow is more than just about building planes. From movie
+              nights, picnics, and traveling to competition, we facilitate the
+              environment to build lasting friendships.
+            </p>
+            <p>
+              Since 2023, WatArrow has grown from just 7 members to over 40
+              members. In preparation for SAE Aero Design 2027, we anticipate
+              even more exciting work that you can participate in! Apply now!
+            </p>
+            <div>
+              <sub>Veronika Markovich, Daria Tsybukova, Virika Vadgama</sub>
+            </div>
+            <div className="basic-button">
+              <Link href="/join">JOIN US</Link>
+            </div>
+          </div>
         </div>
       </main>
     </>
   );
-}
+};
+export default Team;
+
+export const getServerSideProps = async () => {
+  try {
+    const content = await directus.request(
+      readItems("team_page", {
+        fields: ["*", "carasoul.*"],
+      }),
+    );
+
+    return {
+      props: {
+        content: content || {},
+      },
+    };
+  } catch (error) {
+    console.error("Failed to fetch team_page content from Directus:", error);
+    return {
+      props: {
+        content: { carasoul: [] },
+      },
+    };
+  }
+};

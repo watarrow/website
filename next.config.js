@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const DIRECTUS_CDN_HOSTNAME = process.env.NEXT_PUBLIC_DIRECTUS_CDN_HOSTNAME;
+const DIRECTUS_CDN_HOSTNAME =
+  process.env.NEXT_PUBLIC_DIRECTUS_CDN_HOSTNAME || "app.watarrow.com";
 
 module.exports = {
   webpack(config) {
@@ -36,6 +37,29 @@ module.exports = {
   },
 
   reactStrictMode: true,
+
+  async redirects() {
+    return [
+      // The old /team page is now the home page
+      {
+        source: "/team",
+        destination: "/",
+        permanent: true,
+      },
+
+      {
+        source: "/planes",
+        destination: "/aircraft",
+        permanent: true,
+      },
+
+      {
+        source: "/aircrafts",
+        destination: "/aircraft",
+        permanent: true,
+      },
+    ];
+  },
 
   images: {
     remotePatterns: [

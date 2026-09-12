@@ -11,9 +11,15 @@ import "@/styles/globals.scss";
 export default function App({ Component, pageProps }) {
   // allowed routes
   const router = useRouter();
-  const routes = ["/", "/team", "/sponsor", "/blog", "/contact", "/join"];
+  const routes = ["/", "/aircraft", "/sponsor", "/blog", "/contact", "/join"];
 
-  if (!routes.find((route) => router.pathname.startsWith(route)).length)
+  const isAllowedRoute =
+    router.pathname === "/" ||
+    routes
+      .filter((r) => r !== "/")
+      .some((route) => router.pathname.startsWith(route));
+
+  if (!isAllowedRoute)
     return (
       <ThemeProvider>
         {/* <NextNProgress {...nextNProgressProps} /> */}

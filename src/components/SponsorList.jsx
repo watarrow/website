@@ -2,11 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
-const TierSponsor = ({ sponsors }) => {
+const TierSponsor = ({ sponsors, tierIndex }) => {
   const DIRECTUS_CDN_URL = process.env.NEXT_PUBLIC_DIRECTUS_CDN_URL;
 
   return (
-    <div className="tier-sponsors">
+    <div className={`tier-sponsors tier-${tierIndex + 1}`}>
       {sponsors.map((sponsor, i) => (
         <Link
           key={i}
@@ -37,7 +37,7 @@ const SponsorList = ({ sponsors }) => {
         <div key={i} className="tier-container">
           <h3>{tier.name}</h3>
           <hr />
-          <TierSponsor sponsors={tier.sponsors} />
+          <TierSponsor sponsors={tier.sponsors} tierIndex={i} />
         </div>
       ))}
     </div>

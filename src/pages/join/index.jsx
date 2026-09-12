@@ -2,11 +2,7 @@ import Link from "next/link";
 import FadeIn from "react-fade-in";
 import Head from "next/head";
 
-import directus from "@/lib/directus";
-import { readItems } from "@directus/sdk";
-import { isProd } from "@/utils/environment";
-
-const Join = ({ roles }) => {
+const Join = () => {
   return (
     <>
       <Head>
@@ -25,38 +21,14 @@ const Join = ({ roles }) => {
               for you here and we can′t wait for you to be a part of the team!
             </p>
           </div>
-          <div className="open-roles-container">
-            <h2>OPEN ROLES</h2>
-            <div className="open-roles-list-container">
-              {roles?.length > 0 ? (
-                <ul className="open-roles-list">
-                  {roles.map((role, i) => (
-                    <li className="open-roles-list-item" key={i}>
-                      <p className="role-title">{role.title}</p>
-                      <Link
-                        className="view-role"
-                        href={role.link}
-                        target="_blank"
-                      >
-                        View Role
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="no-roles">
-                  It looks like we don′t have any open roles at the moment.
-                  Please check again another time or apply through our General
-                  Interest Form.
-                </p>
-              )}
-            </div>
-          </div>
           <div className="general-interest-form">
-            <h2>GENERAL INTEREST FORM</h2>
+            <h2>APPLY NOW</h2>
             <p>
-              If you don′t find any roles that fit your experience, feel free to
-              apply through our general interest form!
+              Ready to join the team? Apply through our general interest form
+              below. In the form, you can choose which part of the team you′re
+              most interested in, whether that′s engineering, software,
+              business, or anything else. We′ll review your application and
+              reach out with next steps!
             </p>
             <div className="basic-button">
               <Link href="https://forms.gle/NjSRLQ4k9VWdeHFK8">Apply</Link>
@@ -68,24 +40,3 @@ const Join = ({ roles }) => {
   );
 };
 export default Join;
-
-export const getServerSideProps = async () => {
-  const roles = await directus.request(
-    readItems("roles", {
-      sort: ["sort"],
-      ...(isProd() && {
-        filter: {
-          status: {
-            _eq: "PUBLISHED",
-          },
-        },
-      }),
-    })
-  );
-
-  return {
-    props: {
-      roles,
-    },
-  };
-};
