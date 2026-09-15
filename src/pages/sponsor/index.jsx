@@ -46,7 +46,6 @@ const Sponsor = ({ sponsors }) => {
                   src={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}
                   title="Sponsor Package Preview"
                   tabIndex={-1}
-                  sandbox="allow-scripts allow-same-origin"
                 />
 
               <div className="package-info" style={{padding: "5px"}}>
