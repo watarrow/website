@@ -82,21 +82,6 @@ const Team = ({ content }) => {
               Aircraft designed and built by student engineers at the University
               of Waterloo
             </p>
-            {isMobile ? (
-              <sub>Veronika Markovich, Lesley Lang, Riya Vaidya</sub>
-            ) : (
-              <>
-                <sub style={{ display: "block" }}>
-                  Sophia Yang, Sayan Saha, Lesley Lang, Virika Vadgama, Henry
-                  Xi, Emma Keeping, Joshua Perry, Daniel Moorthy, Victor Radu,
-                  Yang Li, Prahaas Kotni
-                </sub>
-                <sub style={{ display: "block" }}>
-                  Veronika Markovich, Daria Tsybukova, Riya Vaidya, Samuel Ke,
-                  Matthew Zhang
-                </sub>
-              </>
-            )}
           </div>
           <ScrollArrow />
         </div>
@@ -161,7 +146,7 @@ const Team = ({ content }) => {
               transitionDuration={750}
             >
               <Image
-                width={640}
+                width={800}
                 height={800}
                 src={`${DIRECTUS_CDN_URL}/assets/${content.about_image}`}
                 alt="WatArrow origin members in front of a bay"
@@ -188,12 +173,6 @@ const Team = ({ content }) => {
             <p className="location">Lakeland, Florida, USA</p>
             <p className="info">Advanced Class - 12th Place</p>
             <p className="info">Micro Class - 7th Place</p>
-          </div>
-          <div className="bottom">
-            <sub>
-              Prahaas Kotni, Daria Tsybukova, Virika Vadgama, Veronika
-              Markovich, Victor Radu
-            </sub>
           </div>
           <ScrollArrow />
         </div>
@@ -293,9 +272,6 @@ const Team = ({ content }) => {
               members. In preparation for SAE Aero Design 2027, we anticipate
               even more exciting work that you can participate in! Apply now!
             </p>
-            <div>
-              <sub>Veronika Markovich, Daria Tsybukova, Virika Vadgama</sub>
-            </div>
             <div className="basic-button">
               <Link href="/join">JOIN US</Link>
             </div>

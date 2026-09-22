@@ -7,6 +7,11 @@ import Arrow from "@/assets/logo-transparent-svg.svg";
 import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
+const formatContactName = (name) => {
+  if (!name) return "";
+  return name.replace(/\s*\|\s*(technical director|business lead)/gi, "").trim();
+};
+
 const Contact = ({ contacts }) => {
   return (
     <>
@@ -27,7 +32,7 @@ const Contact = ({ contacts }) => {
             {contacts.map((contact, i) => (
               <div className="contact-card" key={i}>
                 <h2>{contact.purpose}</h2>
-                <p>{contact.name}</p>
+                <p>{formatContactName(contact.name)}</p>
                 <Link className="email" href={`mailto:${contact.email}`}>
                   {contact.email}
                 </Link>

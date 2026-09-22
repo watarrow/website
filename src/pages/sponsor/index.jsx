@@ -42,6 +42,7 @@ const Sponsor = ({ sponsors }) => {
             <div className="sponsor-package-card">
 
                 <iframe
+                  className="sponsor-package-preview"
                   style={{ width: '100%', minHeight: '750px' }}
                   src={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}
                   title="Sponsor Package Preview"
@@ -49,13 +50,6 @@ const Sponsor = ({ sponsors }) => {
                 />
 
               <div className="package-info" style={{padding: "5px"}}>
-                <p>
-                  Are you interested in sponsoring us? Our sponsor package has
-                  everything you need to know
-                  <br></br>
-                  learn about WatArrow, see how
-                  your funding supports us, and explore our sponsorship tiers.
-                </p>
                 <button className="button-container">
                   <Link
                     href={`${DIRECTUS_CDN_URL}/assets/93a005d7-4991-4499-921f-e04475561ffe`}

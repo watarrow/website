@@ -29,7 +29,7 @@
     .text {
       position: absolute;
       left: 100px;
-      bottom: 100px;
+      bottom: 50px;
       height: fit-content;
 
       svg {
@@ -68,7 +68,7 @@
       }
       .text {
         left: 25px;
-        bottom: 150px;
+        bottom: 75px;
 
         svg {
           transform: translate(-12px, 5px);
@@ -148,8 +148,10 @@
 
         img {
           object-fit: cover;
+          aspect-ratio: 1 / 1;
           width: 100%;
-          max-height: 90%;
+          max-width: 500px;
+          height: auto;
         }
       }
     }
@@ -172,7 +174,10 @@
         .right {
           img {
             object-fit: contain;
-            height: fit-content;
+            aspect-ratio: 1 / 1;
+            height: auto;
+            width: 100%;
+            max-width: 450px;
           }
         }
       }

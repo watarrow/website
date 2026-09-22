@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Arrow from "@/assets/logo-transparent-svg.svg";
 import MenuButton from "./MenuButton";
@@ -28,14 +29,22 @@ const links = [
   {
     name: "Join Us",
     href: "/join",
-    special: true,
   },
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   const [showNavbarBackground, setShowNavbarBackground] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
+
+  const isLinkActive = (href) => {
+    if (!router || !router.pathname) return false;
+    if (href === "/") {
+      return router.pathname === "/";
+    }
+    return router.pathname.startsWith(href);
+  };
 
   useEffect(() => {
     window.onscroll = () => scrollFunction();
@@ -76,20 +85,26 @@ const Navbar = () => {
         </Link>
         {/* collapsed menu for mobile */}
         <ul className="links-list">
-          {links.map((link, i) => (
-            <li
-              className="links-list-item"
-              id={link.special && "special"}
-              key={i}
-            >
-              <Link className="link" href={link.href}>
-                {link.name}
-              </Link>
-            </li>
-          ))}
+          {links.map((link, i) => {
+            const isActive = isLinkActive(link.href);
+            return (
+              <li
+                className="links-list-item"
+                id={isActive ? "special" : undefined}
+                key={i}
+              >
+                <Link className="link" href={link.href}>
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
         <MenuButton
-          links={links}
+          links={links.map((link) => ({
+            ...link,
+            active: isLinkActive(link.href),
+          }))}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
           showBackground={showBackground}

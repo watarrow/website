@@ -35,7 +35,7 @@ const MenuButton = ({
             {links.map((link, i) => (
               <li
                 className="menu-links-list-item"
-                id={link.special && "special"}
+                id={(link.active || link.special) ? "special" : undefined}
                 key={i}
                 onClick={() => {
                   setMenuOpen(false);
