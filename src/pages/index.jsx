@@ -187,12 +187,9 @@ const Team = ({ content }) => {
             >
               <h2>TEAM STRUCTURE</h2>
               <div className="section">
-                <h3>Captains</h3>
+                <h3>Captain</h3>
                 <p>
-                  Sayan Saha <span className="yellow">Co-Captain</span>
-                </p>
-                <p>
-                  Riya Vaidya <span className="yellow">Co-Captain</span>
+                  <span className="yellow">Sayan Saha</span>
                 </p>
               </div>
               <div className="section">
@@ -202,11 +199,11 @@ const Team = ({ content }) => {
                   <span className="yellow">Autonomy & Avionics Lead</span>
                 </p>
                 <p>
-                  Virika Vadgama{" "}
+                  Lesley Lang{" "}
                   <span className="yellow">Structures Co-Lead</span>
                 </p>
                 <p>
-                  Lesley Lang{" "}
+                  Daria Tsybukova{" "}
                   <span className="yellow">Structures Co-Lead</span>
                 </p>
                 <p>
